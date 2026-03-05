@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Logs
+logs/
+
+# Model weights (keep README)
+model_zoo/*/
+model_zoo/**/*.pth
+model_zoo/**/*.pt
+model_zoo/**/*.bin
+model_zoo/**/*.ckpt
+
+# Results
+results/
