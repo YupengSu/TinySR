@@ -1,0 +1,190 @@
+===== Grayscale Denoising =====
+[Sun Mar  8 02:36:21 PM PDT 2026] Noise level: 15
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=gray_dn  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/004_grayDN_DFWB_s128w8_SwinIR-M_noise15.pth
+FP32 model: 11,497,681 params  |  117.2 MB
+
+--- FP32 Baseline on testsets/Set12 ---
+[FP32]   0 01                    PSNR: 33.04 dB  SSIM: 0.9169
+[FP32]   1 02                    PSNR: 35.91 dB  SSIM: 0.9099
+[FP32]   2 03                    PSNR: 33.66 dB  SSIM: 0.9162
+[FP32]   3 04                    PSNR: 32.57 dB  SSIM: 0.9200
+[FP32]   4 05                    PSNR: 33.68 dB  SSIM: 0.9541
+[FP32]   5 06                    PSNR: 32.08 dB  SSIM: 0.9125
+[FP32]   6 07                    PSNR: 32.17 dB  SSIM: 0.9105
+[FP32]   7 08                    PSNR: 34.97 dB  SSIM: 0.9088
+[FP32]   8 09                    PSNR: 33.98 dB  SSIM: 0.9349
+[FP32]   9 10                    PSNR: 32.81 dB  SSIM: 0.8711
+[FP32]  10 11                    PSNR: 32.67 dB  SSIM: 0.8858
+[FP32]  11 12                    PSNR: 32.83 dB  SSIM: 0.8915
+
+[FP32] Avg  PSNR: 33.36 dB  SSIM: 0.9110
+[FP32] Avg  Runtime: 0.583 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,497,681 →    8,750,161  (1.31x reduction)
+Size:       117.2 MB  →    106.7 MB  (1.10x reduction)
+[FP32]   Memory: 117.18 MB   Params: 11497681
+[Pruned] Memory: 106.70 MB   Params: 8750161
+
+--- Pruned evaluation on testsets/Set12 (cuda) ---
+[Pruned]   0 01                    PSNR: 29.67 dB  SSIM: 0.8480
+[Pruned]   1 02                    PSNR: 33.79 dB  SSIM: 0.8751
+[Pruned]   2 03                    PSNR: 31.29 dB  SSIM: 0.8905
+[Pruned]   3 04                    PSNR: 30.44 dB  SSIM: 0.8811
+[Pruned]   4 05                    PSNR: 31.76 dB  SSIM: 0.9283
+[Pruned]   5 06                    PSNR: 30.77 dB  SSIM: 0.8991
+[Pruned]   6 07                    PSNR: 29.24 dB  SSIM: 0.8490
+[Pruned]   7 08                    PSNR: 32.79 dB  SSIM: 0.8818
+[Pruned]   8 09                    PSNR: 30.90 dB  SSIM: 0.8884
+[Pruned]   9 10                    PSNR: 30.54 dB  SSIM: 0.8266
+[Pruned]  10 11                    PSNR: 30.40 dB  SSIM: 0.8374
+[Pruned]  11 12                    PSNR: 30.54 dB  SSIM: 0.8520
+
+[Pruned] Avg  PSNR: 31.01 dB  SSIM: 0.8714
+[Pruned] Avg  Runtime: 0.599 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 33.3632 → 31.0116  (Δ = -2.3516 dB)
+  SSIM   : 0.9110 → 0.8714  (Δ = -0.0396    )
+  RUNTIME: 0.583 s/img → 0.599 s/img  (0.97x slower)
+Saved pruned model → model_zoo/swinir_pruned/004_grayDN_DFWB_s128w8_SwinIR-M_noise15_mlp75_attn4h.pth  (106.7 MB on disk)
+
+Done.
+[Sun Mar  8 02:36:42 PM PDT 2026] Noise level: 25
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=gray_dn  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/004_grayDN_DFWB_s128w8_SwinIR-M_noise25.pth
+FP32 model: 11,497,681 params  |  117.2 MB
+
+--- FP32 Baseline on testsets/Set12 ---
+[FP32]   0 01                    PSNR: 30.69 dB  SSIM: 0.8827
+[FP32]   1 02                    PSNR: 33.91 dB  SSIM: 0.8730
+[FP32]   2 03                    PSNR: 31.28 dB  SSIM: 0.8863
+[FP32]   3 04                    PSNR: 29.96 dB  SSIM: 0.8780
+[FP32]   4 05                    PSNR: 30.95 dB  SSIM: 0.9295
+[FP32]   5 06                    PSNR: 29.44 dB  SSIM: 0.8763
+[FP32]   6 07                    PSNR: 29.75 dB  SSIM: 0.8693
+[FP32]   7 08                    PSNR: 32.98 dB  SSIM: 0.8837
+[FP32]   8 09                    PSNR: 31.69 dB  SSIM: 0.9094
+[FP32]   9 10                    PSNR: 30.64 dB  SSIM: 0.8250
+[FP32]  10 11                    PSNR: 30.32 dB  SSIM: 0.8297
+[FP32]  11 12                    PSNR: 30.57 dB  SSIM: 0.8469
+
+[FP32] Avg  PSNR: 31.01 dB  SSIM: 0.8741
+[FP32] Avg  Runtime: 0.623 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,497,681 →    8,750,161  (1.31x reduction)
+Size:       117.2 MB  →    106.7 MB  (1.10x reduction)
+[FP32]   Memory: 117.18 MB   Params: 11497681
+[Pruned] Memory: 106.70 MB   Params: 8750161
+
+--- Pruned evaluation on testsets/Set12 (cuda) ---
+[Pruned]   0 01                    PSNR: 26.56 dB  SSIM: 0.7746
+[Pruned]   1 02                    PSNR: 30.10 dB  SSIM: 0.8259
+[Pruned]   2 03                    PSNR: 27.81 dB  SSIM: 0.8344
+[Pruned]   3 04                    PSNR: 26.76 dB  SSIM: 0.8164
+[Pruned]   4 05                    PSNR: 28.17 dB  SSIM: 0.8752
+[Pruned]   5 06                    PSNR: 26.99 dB  SSIM: 0.8516
+[Pruned]   6 07                    PSNR: 26.16 dB  SSIM: 0.7824
+[Pruned]   7 08                    PSNR: 29.34 dB  SSIM: 0.8268
+[Pruned]   8 09                    PSNR: 27.09 dB  SSIM: 0.8183
+[Pruned]   9 10                    PSNR: 27.16 dB  SSIM: 0.7506
+[Pruned]  10 11                    PSNR: 27.06 dB  SSIM: 0.7541
+[Pruned]  11 12                    PSNR: 27.05 dB  SSIM: 0.7718
+
+[Pruned] Avg  PSNR: 27.52 dB  SSIM: 0.8068
+[Pruned] Avg  Runtime: 0.765 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 31.0143 → 27.5203  (Δ = -3.4940 dB)
+  SSIM   : 0.8741 → 0.8068  (Δ = -0.0673    )
+  RUNTIME: 0.623 s/img → 0.765 s/img  (0.81x slower)
+Saved pruned model → model_zoo/swinir_pruned/004_grayDN_DFWB_s128w8_SwinIR-M_noise25_mlp75_attn4h.pth  (106.7 MB on disk)
+
+Done.
+[Sun Mar  8 02:37:05 PM PDT 2026] Noise level: 50
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=gray_dn  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/004_grayDN_DFWB_s128w8_SwinIR-M_noise50.pth
+FP32 model: 11,497,681 params  |  117.2 MB
+
+--- FP32 Baseline on testsets/Set12 ---
+[FP32]   0 01                    PSNR: 27.79 dB  SSIM: 0.8278
+[FP32]   1 02                    PSNR: 31.11 dB  SSIM: 0.8383
+[FP32]   2 03                    PSNR: 27.91 dB  SSIM: 0.8276
+[FP32]   3 04                    PSNR: 26.55 dB  SSIM: 0.8031
+[FP32]   4 05                    PSNR: 27.31 dB  SSIM: 0.8723
+[FP32]   5 06                    PSNR: 26.14 dB  SSIM: 0.8088
+[FP32]   6 07                    PSNR: 26.91 dB  SSIM: 0.8078
+[FP32]   7 08                    PSNR: 30.11 dB  SSIM: 0.8374
+[FP32]   8 09                    PSNR: 28.41 dB  SSIM: 0.8479
+[FP32]   9 10                    PSNR: 27.70 dB  SSIM: 0.7437
+[FP32]  10 11                    PSNR: 27.45 dB  SSIM: 0.7375
+[FP32]  11 12                    PSNR: 27.53 dB  SSIM: 0.7625
+
+[FP32] Avg  PSNR: 27.91 dB  SSIM: 0.8096
+[FP32] Avg  Runtime: 0.649 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,497,681 →    8,750,161  (1.31x reduction)
+Size:       117.2 MB  →    106.7 MB  (1.10x reduction)
+[FP32]   Memory: 117.18 MB   Params: 11497681
+[Pruned] Memory: 106.70 MB   Params: 8750161
+
+--- Pruned evaluation on testsets/Set12 (cuda) ---
+[Pruned]   0 01                    PSNR: 21.07 dB  SSIM: 0.6542
+[Pruned]   1 02                    PSNR: 22.45 dB  SSIM: 0.6714
+[Pruned]   2 03                    PSNR: 20.98 dB  SSIM: 0.6529
+[Pruned]   3 04                    PSNR: 20.53 dB  SSIM: 0.6565
+[Pruned]   4 05                    PSNR: 21.95 dB  SSIM: 0.7372
+[Pruned]   5 06                    PSNR: 20.74 dB  SSIM: 0.7323
+[Pruned]   6 07                    PSNR: 21.00 dB  SSIM: 0.6404
+[Pruned]   7 08                    PSNR: 22.61 dB  SSIM: 0.6503
+[Pruned]   8 09                    PSNR: 21.05 dB  SSIM: 0.6359
+[Pruned]   9 10                    PSNR: 21.76 dB  SSIM: 0.6026
+[Pruned]  10 11                    PSNR: 21.72 dB  SSIM: 0.5900
+[Pruned]  11 12                    PSNR: 21.20 dB  SSIM: 0.5557
+
+[Pruned] Avg  PSNR: 21.42 dB  SSIM: 0.6483
+[Pruned] Avg  Runtime: 0.630 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 27.9105 → 21.4204  (Δ = -6.4901 dB)
+  SSIM   : 0.8096 → 0.6483  (Δ = -0.1613    )
+  RUNTIME: 0.649 s/img → 0.630 s/img  (1.03x faster)
+Saved pruned model → model_zoo/swinir_pruned/004_grayDN_DFWB_s128w8_SwinIR-M_noise50_mlp75_attn4h.pth  (106.7 MB on disk)
+
+Done.

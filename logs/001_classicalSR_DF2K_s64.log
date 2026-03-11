@@ -1,0 +1,61 @@
+===== Classical SR (DF2K, patch=64) =====
+[Wed Mar  4 03:27:36 PM PST 2026] Scale: x2
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x2.pth
+Testing 0 baby                 - PSNR: 37.53 dB; SSIM: 0.9613; PSNRB: 0.00 dB;PSNR_Y: 39.04 dB; SSIM_Y: 0.9686; PSNRB_Y: 0.00 dB.
+Testing 1 bird                 - PSNR: 40.96 dB; SSIM: 0.9851; PSNRB: 0.00 dB;PSNR_Y: 43.69 dB; SSIM_Y: 0.9912; PSNRB_Y: 0.00 dB.
+Testing 2 butterfly            - PSNR: 34.64 dB; SSIM: 0.9739; PSNRB: 0.00 dB;PSNR_Y: 36.28 dB; SSIM_Y: 0.9812; PSNRB_Y: 0.00 dB.
+Testing 3 head                 - PSNR: 32.37 dB; SSIM: 0.8364; PSNRB: 0.00 dB;PSNR_Y: 36.12 dB; SSIM_Y: 0.8935; PSNRB_Y: 0.00 dB.
+Testing 4 woman                - PSNR: 35.56 dB; SSIM: 0.9735; PSNRB: 0.00 dB;PSNR_Y: 36.94 dB; SSIM_Y: 0.9769; PSNRB_Y: 0.00 dB.
+
+results/swinir_classical_sr_x2 
+-- Average PSNR/SSIM(RGB): 36.21 dB; 0.9460
+-- Average PSNR_Y/SSIM_Y: 38.42 dB; 0.9623
+[Wed Mar  4 03:27:44 PM PST 2026] Scale: x3
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x3.pth
+Testing 0 baby                 - PSNR: 34.34 dB; SSIM: 0.9158; PSNRB: 0.00 dB;PSNR_Y: 35.86 dB; SSIM_Y: 0.9318; PSNRB_Y: 0.00 dB.
+Testing 1 bird                 - PSNR: 36.43 dB; SSIM: 0.9630; PSNRB: 0.00 dB;PSNR_Y: 38.87 dB; SSIM_Y: 0.9756; PSNRB_Y: 0.00 dB.
+Testing 2 butterfly            - PSNR: 30.86 dB; SSIM: 0.9490; PSNRB: 0.00 dB;PSNR_Y: 32.33 dB; SSIM_Y: 0.9605; PSNRB_Y: 0.00 dB.
+Testing 3 head                 - PSNR: 30.94 dB; SSIM: 0.7708; PSNRB: 0.00 dB;PSNR_Y: 34.25 dB; SSIM_Y: 0.8403; PSNRB_Y: 0.00 dB.
+Testing 4 woman                - PSNR: 32.19 dB; SSIM: 0.9442; PSNRB: 0.00 dB;PSNR_Y: 33.56 dB; SSIM_Y: 0.9510; PSNRB_Y: 0.00 dB.
+
+results/swinir_classical_sr_x3 
+-- Average PSNR/SSIM(RGB): 32.95 dB; 0.9086
+-- Average PSNR_Y/SSIM_Y: 34.97 dB; 0.9318
+[Wed Mar  4 03:27:53 PM PST 2026] Scale: x4
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth
+Testing 0 baby                 - PSNR: 32.54 dB; SSIM: 0.8744; PSNRB: 0.00 dB;PSNR_Y: 34.05 dB; SSIM_Y: 0.8985; PSNRB_Y: 0.00 dB.
+Testing 1 bird                 - PSNR: 33.66 dB; SSIM: 0.9365; PSNRB: 0.00 dB;PSNR_Y: 35.93 dB; SSIM_Y: 0.9542; PSNRB_Y: 0.00 dB.
+Testing 2 butterfly            - PSNR: 28.55 dB; SSIM: 0.9250; PSNRB: 0.00 dB;PSNR_Y: 29.96 dB; SSIM_Y: 0.9403; PSNRB_Y: 0.00 dB.
+Testing 3 head                 - PSNR: 30.09 dB; SSIM: 0.7270; PSNRB: 0.00 dB;PSNR_Y: 33.16 dB; SSIM_Y: 0.8026; PSNRB_Y: 0.00 dB.
+Testing 4 woman                - PSNR: 30.11 dB; SSIM: 0.9163; PSNRB: 0.00 dB;PSNR_Y: 31.48 dB; SSIM_Y: 0.9262; PSNRB_Y: 0.00 dB.
+
+results/swinir_classical_sr_x4 
+-- Average PSNR/SSIM(RGB): 30.99 dB; 0.8758
+-- Average PSNR_Y/SSIM_Y: 32.92 dB; 0.9044
+[Wed Mar  4 03:28:01 PM PST 2026] Scale: x8
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x8.pth
+Testing 0 baby                 - PSNR: 28.09 dB; SSIM: 0.7499; PSNRB: 0.00 dB;PSNR_Y: 29.39 dB; SSIM_Y: 0.7874; PSNRB_Y: 0.00 dB.
+Testing 1 bird                 - PSNR: 26.51 dB; SSIM: 0.7850; PSNRB: 0.00 dB;PSNR_Y: 28.61 dB; SSIM_Y: 0.8221; PSNRB_Y: 0.00 dB.
+Testing 2 butterfly            - PSNR: 22.08 dB; SSIM: 0.8061; PSNRB: 0.00 dB;PSNR_Y: 23.38 dB; SSIM_Y: 0.8340; PSNRB_Y: 0.00 dB.
+Testing 3 head                 - PSNR: 27.90 dB; SSIM: 0.6230; PSNRB: 0.00 dB;PSNR_Y: 30.49 dB; SSIM_Y: 0.7102; PSNRB_Y: 0.00 dB.
+Testing 4 woman                - PSNR: 24.53 dB; SSIM: 0.7922; PSNRB: 0.00 dB;PSNR_Y: 25.91 dB; SSIM_Y: 0.8168; PSNRB_Y: 0.00 dB.
+
+results/swinir_classical_sr_x8 
+-- Average PSNR/SSIM(RGB): 25.82 dB; 0.7512
+-- Average PSNR_Y/SSIM_Y: 27.55 dB; 0.7941

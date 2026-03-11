@@ -1,0 +1,238 @@
+===== Color Denoising =====
+[Sun Mar  8 02:37:27 PM PDT 2026] Noise level: 15
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_dn  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/005_colorDN_DFWB_s128w8_SwinIR-M_noise15.pth
+FP32 model: 11,504,163 params  |  117.2 MB
+
+--- FP32 Baseline on testsets/McMaster ---
+[FP32]   0 1                     PSNR: 32.18 dB  SSIM: 0.9201  PSNR_Y: 35.05 dB  SSIM_Y: 0.9435
+[FP32]   1 10                    PSNR: 36.36 dB  SSIM: 0.9440  PSNR_Y: 39.46 dB  SSIM_Y: 0.9675
+[FP32]   2 11                    PSNR: 36.56 dB  SSIM: 0.9353  PSNR_Y: 38.85 dB  SSIM_Y: 0.9565
+[FP32]   3 12                    PSNR: 37.85 dB  SSIM: 0.9479  PSNR_Y: 40.72 dB  SSIM_Y: 0.9762
+[FP32]   4 13                    PSNR: 39.42 dB  SSIM: 0.9352  PSNR_Y: 43.45 dB  SSIM_Y: 0.9759
+[FP32]   5 14                    PSNR: 36.99 dB  SSIM: 0.9249  PSNR_Y: 40.33 dB  SSIM_Y: 0.9615
+[FP32]   6 15                    PSNR: 36.92 dB  SSIM: 0.9236  PSNR_Y: 40.34 dB  SSIM_Y: 0.9585
+[FP32]   7 16                    PSNR: 33.37 dB  SSIM: 0.9287  PSNR_Y: 35.10 dB  SSIM_Y: 0.9479
+[FP32]   8 17                    PSNR: 33.63 dB  SSIM: 0.9240  PSNR_Y: 36.99 dB  SSIM_Y: 0.9487
+[FP32]   9 18                    PSNR: 34.33 dB  SSIM: 0.9251  PSNR_Y: 36.00 dB  SSIM_Y: 0.9431
+[FP32]  10 2                     PSNR: 34.40 dB  SSIM: 0.9191  PSNR_Y: 37.65 dB  SSIM_Y: 0.9545
+[FP32]  11 3                     PSNR: 33.79 dB  SSIM: 0.9513  PSNR_Y: 36.31 dB  SSIM_Y: 0.9687
+[FP32]  12 4                     PSNR: 37.10 dB  SSIM: 0.9670  PSNR_Y: 39.88 dB  SSIM_Y: 0.9784
+[FP32]  13 5                     PSNR: 34.80 dB  SSIM: 0.9287  PSNR_Y: 37.85 dB  SSIM_Y: 0.9546
+[FP32]  14 6                     PSNR: 35.91 dB  SSIM: 0.9344  PSNR_Y: 39.09 dB  SSIM_Y: 0.9608
+[FP32]  15 7                     PSNR: 33.88 dB  SSIM: 0.9198  PSNR_Y: 35.67 dB  SSIM_Y: 0.9386
+[FP32]  16 8                     PSNR: 37.06 dB  SSIM: 0.9532  PSNR_Y: 39.31 dB  SSIM_Y: 0.9733
+[FP32]  17 9                     PSNR: 36.46 dB  SSIM: 0.9399  PSNR_Y: 39.43 dB  SSIM_Y: 0.9682
+
+[FP32] Avg  PSNR: 35.61 dB  SSIM: 0.9346
+[FP32] Avg  PSNR_Y: 38.42 dB  SSIM_Y: 0.9598
+[FP32] Avg  Runtime: 1.076 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,504,163 →    8,756,643  (1.31x reduction)
+Size:       117.2 MB  →    106.7 MB  (1.10x reduction)
+[FP32]   Memory: 117.21 MB   Params: 11504163
+[Pruned] Memory: 106.72 MB   Params: 8756643
+
+--- Pruned evaluation on testsets/McMaster (cuda) ---
+[Pruned]   0 1                     PSNR: 28.89 dB  SSIM: 0.8576  PSNR_Y: 32.51 dB  SSIM_Y: 0.9074
+[Pruned]   1 10                    PSNR: 29.93 dB  SSIM: 0.8425  PSNR_Y: 35.12 dB  SSIM_Y: 0.9226
+[Pruned]   2 11                    PSNR: 29.90 dB  SSIM: 0.8034  PSNR_Y: 34.34 dB  SSIM_Y: 0.8995
+[Pruned]   3 12                    PSNR: 32.17 dB  SSIM: 0.9011  PSNR_Y: 36.71 dB  SSIM_Y: 0.9528
+[Pruned]   4 13                    PSNR: 33.12 dB  SSIM: 0.9106  PSNR_Y: 39.05 dB  SSIM_Y: 0.9619
+[Pruned]   5 14                    PSNR: 30.64 dB  SSIM: 0.8417  PSNR_Y: 35.68 dB  SSIM_Y: 0.9170
+[Pruned]   6 15                    PSNR: 30.12 dB  SSIM: 0.8093  PSNR_Y: 35.60 dB  SSIM_Y: 0.9061
+[Pruned]   7 16                    PSNR: 29.02 dB  SSIM: 0.8434  PSNR_Y: 31.16 dB  SSIM_Y: 0.8925
+[Pruned]   8 17                    PSNR: 27.93 dB  SSIM: 0.8158  PSNR_Y: 32.54 dB  SSIM_Y: 0.8955
+[Pruned]   9 18                    PSNR: 29.99 dB  SSIM: 0.8599  PSNR_Y: 32.02 dB  SSIM_Y: 0.8926
+[Pruned]  10 2                     PSNR: 29.62 dB  SSIM: 0.8300  PSNR_Y: 34.06 dB  SSIM_Y: 0.9074
+[Pruned]  11 3                     PSNR: 30.16 dB  SSIM: 0.9036  PSNR_Y: 33.01 dB  SSIM_Y: 0.9403
+[Pruned]  12 4                     PSNR: 32.04 dB  SSIM: 0.9395  PSNR_Y: 35.71 dB  SSIM_Y: 0.9608
+[Pruned]  13 5                     PSNR: 30.64 dB  SSIM: 0.8750  PSNR_Y: 34.48 dB  SSIM_Y: 0.9222
+[Pruned]  14 6                     PSNR: 30.92 dB  SSIM: 0.8753  PSNR_Y: 35.64 dB  SSIM_Y: 0.9285
+[Pruned]  15 7                     PSNR: 30.60 dB  SSIM: 0.8432  PSNR_Y: 32.88 dB  SSIM_Y: 0.8936
+[Pruned]  16 8                     PSNR: 31.64 dB  SSIM: 0.7965  PSNR_Y: 33.90 dB  SSIM_Y: 0.9079
+[Pruned]  17 9                     PSNR: 30.91 dB  SSIM: 0.8761  PSNR_Y: 35.58 dB  SSIM_Y: 0.9371
+
+[Pruned] Avg  PSNR: 30.46 dB  SSIM: 0.8569
+[Pruned] Avg  PSNR_Y: 34.44 dB  SSIM_Y: 0.9192
+[Pruned] Avg  Runtime: 1.225 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 35.6108 → 30.4574  (Δ = -5.1534 dB)
+  SSIM   : 0.9346 → 0.8569  (Δ = -0.0776    )
+  PSNR_Y : 38.4157 → 34.4441  (Δ = -3.9716 dB)
+  SSIM_Y : 0.9598 → 0.9192  (Δ = -0.0406    )
+  RUNTIME: 1.076 s/img → 1.225 s/img  (0.88x slower)
+Saved pruned model → model_zoo/swinir_pruned/005_colorDN_DFWB_s128w8_SwinIR-M_noise15_mlp75_attn4h.pth  (106.8 MB on disk)
+
+Done.
+[Sun Mar  8 02:38:20 PM PDT 2026] Noise level: 25
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_dn  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/005_colorDN_DFWB_s128w8_SwinIR-M_noise25.pth
+FP32 model: 11,504,163 params  |  117.2 MB
+
+--- FP32 Baseline on testsets/McMaster ---
+[FP32]   0 1                     PSNR: 29.69 dB  SSIM: 0.8764  PSNR_Y: 32.38 dB  SSIM_Y: 0.9076
+[FP32]   1 10                    PSNR: 34.03 dB  SSIM: 0.9183  PSNR_Y: 36.86 dB  SSIM_Y: 0.9481
+[FP32]   2 11                    PSNR: 34.28 dB  SSIM: 0.9063  PSNR_Y: 36.35 dB  SSIM_Y: 0.9320
+[FP32]   3 12                    PSNR: 35.64 dB  SSIM: 0.9359  PSNR_Y: 38.05 dB  SSIM_Y: 0.9664
+[FP32]   4 13                    PSNR: 38.09 dB  SSIM: 0.9288  PSNR_Y: 41.60 dB  SSIM_Y: 0.9715
+[FP32]   5 14                    PSNR: 35.28 dB  SSIM: 0.9068  PSNR_Y: 38.40 dB  SSIM_Y: 0.9488
+[FP32]   6 15                    PSNR: 35.07 dB  SSIM: 0.8994  PSNR_Y: 38.30 dB  SSIM_Y: 0.9424
+[FP32]   7 16                    PSNR: 30.66 dB  SSIM: 0.8797  PSNR_Y: 32.16 dB  SSIM_Y: 0.9045
+[FP32]   8 17                    PSNR: 30.97 dB  SSIM: 0.8764  PSNR_Y: 34.21 dB  SSIM_Y: 0.9118
+[FP32]   9 18                    PSNR: 32.04 dB  SSIM: 0.8867  PSNR_Y: 33.45 dB  SSIM_Y: 0.9061
+[FP32]  10 2                     PSNR: 32.20 dB  SSIM: 0.8855  PSNR_Y: 35.13 dB  SSIM_Y: 0.9291
+[FP32]  11 3                     PSNR: 31.02 dB  SSIM: 0.9252  PSNR_Y: 33.31 dB  SSIM_Y: 0.9465
+[FP32]  12 4                     PSNR: 34.57 dB  SSIM: 0.9513  PSNR_Y: 37.15 dB  SSIM_Y: 0.9664
+[FP32]  13 5                     PSNR: 32.38 dB  SSIM: 0.8959  PSNR_Y: 35.32 dB  SSIM_Y: 0.9284
+[FP32]  14 6                     PSNR: 33.52 dB  SSIM: 0.9041  PSNR_Y: 36.48 dB  SSIM_Y: 0.9372
+[FP32]  15 7                     PSNR: 31.42 dB  SSIM: 0.8710  PSNR_Y: 33.09 dB  SSIM_Y: 0.8959
+[FP32]  16 8                     PSNR: 34.69 dB  SSIM: 0.9339  PSNR_Y: 36.70 dB  SSIM_Y: 0.9602
+[FP32]  17 9                     PSNR: 34.11 dB  SSIM: 0.9207  PSNR_Y: 36.80 dB  SSIM_Y: 0.9529
+
+[FP32] Avg  PSNR: 33.31 dB  SSIM: 0.9057
+[FP32] Avg  PSNR_Y: 35.87 dB  SSIM_Y: 0.9364
+[FP32] Avg  Runtime: 1.196 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,504,163 →    8,756,643  (1.31x reduction)
+Size:       117.2 MB  →    106.7 MB  (1.10x reduction)
+[FP32]   Memory: 117.21 MB   Params: 11504163
+[Pruned] Memory: 106.72 MB   Params: 8756643
+
+--- Pruned evaluation on testsets/McMaster (cuda) ---
+[Pruned]   0 1                     PSNR: 25.23 dB  SSIM: 0.7690  PSNR_Y: 29.32 dB  SSIM_Y: 0.8447
+[Pruned]   1 10                    PSNR: 25.78 dB  SSIM: 0.7410  PSNR_Y: 31.90 dB  SSIM_Y: 0.8566
+[Pruned]   2 11                    PSNR: 25.89 dB  SSIM: 0.6823  PSNR_Y: 31.72 dB  SSIM_Y: 0.8281
+[Pruned]   3 12                    PSNR: 27.85 dB  SSIM: 0.8345  PSNR_Y: 32.87 dB  SSIM_Y: 0.9092
+[Pruned]   4 13                    PSNR: 29.97 dB  SSIM: 0.8764  PSNR_Y: 35.51 dB  SSIM_Y: 0.9397
+[Pruned]   5 14                    PSNR: 26.93 dB  SSIM: 0.7578  PSNR_Y: 32.53 dB  SSIM_Y: 0.8572
+[Pruned]   6 15                    PSNR: 26.01 dB  SSIM: 0.6954  PSNR_Y: 32.56 dB  SSIM_Y: 0.8364
+[Pruned]   7 16                    PSNR: 25.65 dB  SSIM: 0.7496  PSNR_Y: 28.31 dB  SSIM_Y: 0.8275
+[Pruned]   8 17                    PSNR: 24.32 dB  SSIM: 0.7070  PSNR_Y: 30.04 dB  SSIM_Y: 0.8293
+[Pruned]   9 18                    PSNR: 26.90 dB  SSIM: 0.7912  PSNR_Y: 29.69 dB  SSIM_Y: 0.8445
+[Pruned]  10 2                     PSNR: 26.52 dB  SSIM: 0.7444  PSNR_Y: 31.05 dB  SSIM_Y: 0.8413
+[Pruned]  11 3                     PSNR: 26.41 dB  SSIM: 0.8392  PSNR_Y: 29.32 dB  SSIM_Y: 0.8921
+[Pruned]  12 4                     PSNR: 29.18 dB  SSIM: 0.9036  PSNR_Y: 31.85 dB  SSIM_Y: 0.9327
+[Pruned]  13 5                     PSNR: 27.18 dB  SSIM: 0.8062  PSNR_Y: 31.27 dB  SSIM_Y: 0.8704
+[Pruned]  14 6                     PSNR: 26.82 dB  SSIM: 0.7899  PSNR_Y: 31.47 dB  SSIM_Y: 0.8676
+[Pruned]  15 7                     PSNR: 27.24 dB  SSIM: 0.7545  PSNR_Y: 29.90 dB  SSIM_Y: 0.8235
+[Pruned]  16 8                     PSNR: 28.51 dB  SSIM: 0.7007  PSNR_Y: 31.02 dB  SSIM_Y: 0.8445
+[Pruned]  17 9                     PSNR: 27.33 dB  SSIM: 0.8048  PSNR_Y: 32.28 dB  SSIM_Y: 0.8923
+
+[Pruned] Avg  PSNR: 26.87 dB  SSIM: 0.7748
+[Pruned] Avg  PSNR_Y: 31.26 dB  SSIM_Y: 0.8632
+[Pruned] Avg  Runtime: 1.235 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 33.3148 → 26.8732  (Δ = -6.4416 dB)
+  SSIM   : 0.9057 → 0.7748  (Δ = -0.1308    )
+  PSNR_Y : 35.8749 → 31.2561  (Δ = -4.6188 dB)
+  SSIM_Y : 0.9364 → 0.8632  (Δ = -0.0732    )
+  RUNTIME: 1.196 s/img → 1.235 s/img  (0.97x slower)
+Saved pruned model → model_zoo/swinir_pruned/005_colorDN_DFWB_s128w8_SwinIR-M_noise25_mlp75_attn4h.pth  (106.8 MB on disk)
+
+Done.
+[Sun Mar  8 02:39:15 PM PDT 2026] Noise level: 50
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_dn  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/005_colorDN_DFWB_s128w8_SwinIR-M_noise50.pth
+FP32 model: 11,504,163 params  |  117.2 MB
+
+--- FP32 Baseline on testsets/McMaster ---
+[FP32]   0 1                     PSNR: 26.54 dB  SSIM: 0.7914  PSNR_Y: 29.08 dB  SSIM_Y: 0.8371
+[FP32]   1 10                    PSNR: 30.82 dB  SSIM: 0.8635  PSNR_Y: 33.39 dB  SSIM_Y: 0.9051
+[FP32]   2 11                    PSNR: 31.30 dB  SSIM: 0.8528  PSNR_Y: 33.17 dB  SSIM_Y: 0.8845
+[FP32]   3 12                    PSNR: 32.21 dB  SSIM: 0.9063  PSNR_Y: 34.27 dB  SSIM_Y: 0.9412
+[FP32]   4 13                    PSNR: 35.35 dB  SSIM: 0.9139  PSNR_Y: 38.32 dB  SSIM_Y: 0.9598
+[FP32]   5 14                    PSNR: 32.88 dB  SSIM: 0.8772  PSNR_Y: 35.79 dB  SSIM_Y: 0.9266
+[FP32]   6 15                    PSNR: 32.59 dB  SSIM: 0.8629  PSNR_Y: 35.60 dB  SSIM_Y: 0.9169
+[FP32]   7 16                    PSNR: 27.18 dB  SSIM: 0.7745  PSNR_Y: 28.49 dB  SSIM_Y: 0.8059
+[FP32]   8 17                    PSNR: 27.52 dB  SSIM: 0.7808  PSNR_Y: 30.71 dB  SSIM_Y: 0.8332
+[FP32]   9 18                    PSNR: 29.34 dB  SSIM: 0.8223  PSNR_Y: 30.58 dB  SSIM_Y: 0.8416
+[FP32]  10 2                     PSNR: 29.29 dB  SSIM: 0.8201  PSNR_Y: 31.90 dB  SSIM_Y: 0.8773
+[FP32]  11 3                     PSNR: 27.36 dB  SSIM: 0.8632  PSNR_Y: 29.46 dB  SSIM_Y: 0.8918
+[FP32]  12 4                     PSNR: 31.04 dB  SSIM: 0.9221  PSNR_Y: 33.43 dB  SSIM_Y: 0.9426
+[FP32]  13 5                     PSNR: 29.16 dB  SSIM: 0.8334  PSNR_Y: 32.03 dB  SSIM_Y: 0.8761
+[FP32]  14 6                     PSNR: 30.11 dB  SSIM: 0.8406  PSNR_Y: 32.94 dB  SSIM_Y: 0.8856
+[FP32]  15 7                     PSNR: 28.81 dB  SSIM: 0.7848  PSNR_Y: 30.40 dB  SSIM_Y: 0.8206
+[FP32]  16 8                     PSNR: 31.35 dB  SSIM: 0.8928  PSNR_Y: 33.17 dB  SSIM_Y: 0.9324
+[FP32]  17 9                     PSNR: 30.71 dB  SSIM: 0.8796  PSNR_Y: 33.21 dB  SSIM_Y: 0.9183
+
+[FP32] Avg  PSNR: 30.20 dB  SSIM: 0.8490
+[FP32] Avg  PSNR_Y: 32.55 dB  SSIM_Y: 0.8887
+[FP32] Avg  Runtime: 1.084 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,504,163 →    8,756,643  (1.31x reduction)
+Size:       117.2 MB  →    106.7 MB  (1.10x reduction)
+[FP32]   Memory: 117.21 MB   Params: 11504163
+[Pruned] Memory: 106.72 MB   Params: 8756643
+
+--- Pruned evaluation on testsets/McMaster (cuda) ---
+[Pruned]   0 1                     PSNR: 21.93 dB  SSIM: 0.6378  PSNR_Y: 25.99 dB  SSIM_Y: 0.7411
+[Pruned]   1 10                    PSNR: 22.89 dB  SSIM: 0.6169  PSNR_Y: 29.03 dB  SSIM_Y: 0.7698
+[Pruned]   2 11                    PSNR: 23.19 dB  SSIM: 0.5582  PSNR_Y: 28.99 dB  SSIM_Y: 0.7410
+[Pruned]   3 12                    PSNR: 24.14 dB  SSIM: 0.7403  PSNR_Y: 29.25 dB  SSIM_Y: 0.8367
+[Pruned]   4 13                    PSNR: 25.68 dB  SSIM: 0.7280  PSNR_Y: 31.49 dB  SSIM_Y: 0.8441
+[Pruned]   5 14                    PSNR: 24.05 dB  SSIM: 0.6474  PSNR_Y: 28.98 dB  SSIM_Y: 0.7806
+[Pruned]   6 15                    PSNR: 23.39 dB  SSIM: 0.5743  PSNR_Y: 29.69 dB  SSIM_Y: 0.7549
+[Pruned]   7 16                    PSNR: 22.06 dB  SSIM: 0.5978  PSNR_Y: 25.71 dB  SSIM_Y: 0.7218
+[Pruned]   8 17                    PSNR: 21.40 dB  SSIM: 0.5719  PSNR_Y: 27.63 dB  SSIM_Y: 0.7271
+[Pruned]   9 18                    PSNR: 23.61 dB  SSIM: 0.6700  PSNR_Y: 27.10 dB  SSIM_Y: 0.7559
+[Pruned]  10 2                     PSNR: 23.35 dB  SSIM: 0.6155  PSNR_Y: 27.63 dB  SSIM_Y: 0.7496
+[Pruned]  11 3                     PSNR: 22.20 dB  SSIM: 0.6966  PSNR_Y: 25.12 dB  SSIM_Y: 0.7804
+[Pruned]  12 4                     PSNR: 23.43 dB  SSIM: 0.8235  PSNR_Y: 27.11 dB  SSIM_Y: 0.8688
+[Pruned]  13 5                     PSNR: 23.30 dB  SSIM: 0.6762  PSNR_Y: 27.27 dB  SSIM_Y: 0.7725
+[Pruned]  14 6                     PSNR: 23.96 dB  SSIM: 0.6621  PSNR_Y: 28.64 dB  SSIM_Y: 0.7714
+[Pruned]  15 7                     PSNR: 23.39 dB  SSIM: 0.6103  PSNR_Y: 26.33 dB  SSIM_Y: 0.7133
+[Pruned]  16 8                     PSNR: 24.55 dB  SSIM: 0.5489  PSNR_Y: 27.41 dB  SSIM_Y: 0.7826
+[Pruned]  17 9                     PSNR: 23.79 dB  SSIM: 0.6672  PSNR_Y: 28.52 dB  SSIM_Y: 0.7998
+
+[Pruned] Avg  PSNR: 23.35 dB  SSIM: 0.6468
+[Pruned] Avg  PSNR_Y: 27.88 dB  SSIM_Y: 0.7729
+[Pruned] Avg  Runtime: 1.076 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 30.1991 → 23.3508  (Δ = -6.8483 dB)
+  SSIM   : 0.8490 → 0.6468  (Δ = -0.2022    )
+  PSNR_Y : 32.5524 → 27.8843  (Δ = -4.6682 dB)
+  SSIM_Y : 0.8887 → 0.7729  (Δ = -0.1158    )
+  RUNTIME: 1.084 s/img → 1.076 s/img  (1.01x faster)
+Saved pruned model → model_zoo/swinir_pruned/005_colorDN_DFWB_s128w8_SwinIR-M_noise50_mlp75_attn4h.pth  (106.8 MB on disk)
+
+Done.

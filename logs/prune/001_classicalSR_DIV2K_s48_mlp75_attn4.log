@@ -1,0 +1,213 @@
+===== Classical SR (DIV2K, patch=48) =====
+[Sun Mar  8 02:34:22 PM PDT 2026] Scale: x2
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=classical_sr  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DIV2K_s48w8_SwinIR-M_x2.pth
+FP32 model: 11,752,487 params  |  56.3 MB
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 37.47 dB  SSIM: 0.9607  PSNR_Y: 39.01 dB  SSIM_Y: 0.9684
+[FP32]   1 bird                  PSNR: 40.87 dB  SSIM: 0.9848  PSNR_Y: 43.58 dB  SSIM_Y: 0.9911
+[FP32]   2 butterfly             PSNR: 34.62 dB  SSIM: 0.9737  PSNR_Y: 36.26 dB  SSIM_Y: 0.9811
+[FP32]   3 head                  PSNR: 32.35 dB  SSIM: 0.8360  PSNR_Y: 36.11 dB  SSIM_Y: 0.8932
+[FP32]   4 woman                 PSNR: 35.44 dB  SSIM: 0.9726  PSNR_Y: 36.81 dB  SSIM_Y: 0.9761
+
+[FP32] Avg  PSNR: 36.15 dB  SSIM: 0.9455
+[FP32] Avg  PSNR_Y: 38.35 dB  SSIM_Y: 0.9620
+[FP32] Avg  Runtime: 0.156 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,752,487 →    9,004,967  (1.31x reduction)
+Size:        56.3 MB  →     45.8 MB  (1.23x reduction)
+[FP32]   Memory: 56.28 MB   Params: 11752487
+[Pruned] Memory: 45.80 MB   Params: 9004967
+
+--- Pruned evaluation on testsets/Set5/HR (cuda) ---
+[Pruned]   0 baby                  PSNR: 35.75 dB  SSIM: 0.9449  PSNR_Y: 37.24 dB  SSIM_Y: 0.9566
+[Pruned]   1 bird                  PSNR: 35.38 dB  SSIM: 0.9550  PSNR_Y: 37.37 dB  SSIM_Y: 0.9715
+[Pruned]   2 butterfly             PSNR: 32.44 dB  SSIM: 0.9650  PSNR_Y: 34.15 dB  SSIM_Y: 0.9742
+[Pruned]   3 head                  PSNR: 31.32 dB  SSIM: 0.8052  PSNR_Y: 34.61 dB  SSIM_Y: 0.8683
+[Pruned]   4 woman                 PSNR: 32.61 dB  SSIM: 0.9577  PSNR_Y: 33.95 dB  SSIM_Y: 0.9642
+
+[Pruned] Avg  PSNR: 33.50 dB  SSIM: 0.9256
+[Pruned] Avg  PSNR_Y: 35.46 dB  SSIM_Y: 0.9470
+[Pruned] Avg  Runtime: 0.132 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 36.1483 → 33.5008  (Δ = -2.6475 dB)
+  SSIM   : 0.9455 → 0.9256  (Δ = -0.0200    )
+  PSNR_Y : 38.3524 → 35.4632  (Δ = -2.8892 dB)
+  SSIM_Y : 0.9620 → 0.9470  (Δ = -0.0150    )
+  RUNTIME: 0.156 s/img → 0.132 s/img  (1.18x faster)
+Saved pruned model → model_zoo/swinir_pruned/001_classicalSR_DIV2K_s48w8_SwinIR-M_x2_mlp75_attn4h.pth  (45.8 MB on disk)
+
+Done.
+[Sun Mar  8 02:34:30 PM PDT 2026] Scale: x3
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=classical_sr  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DIV2K_s48w8_SwinIR-M_x3.pth
+FP32 model: 11,937,127 params  |  57.0 MB
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 34.31 dB  SSIM: 0.9153  PSNR_Y: 35.84 dB  SSIM_Y: 0.9316
+[FP32]   1 bird                  PSNR: 36.26 dB  SSIM: 0.9617  PSNR_Y: 38.64 dB  SSIM_Y: 0.9745
+[FP32]   2 butterfly             PSNR: 30.83 dB  SSIM: 0.9478  PSNR_Y: 32.30 dB  SSIM_Y: 0.9595
+[FP32]   3 head                  PSNR: 30.93 dB  SSIM: 0.7703  PSNR_Y: 34.24 dB  SSIM_Y: 0.8399
+[FP32]   4 woman                 PSNR: 32.06 dB  SSIM: 0.9438  PSNR_Y: 33.43 dB  SSIM_Y: 0.9507
+
+[FP32] Avg  PSNR: 32.88 dB  SSIM: 0.9078
+[FP32] Avg  PSNR_Y: 34.89 dB  SSIM_Y: 0.9312
+[FP32] Avg  Runtime: 0.123 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,937,127 →    9,189,607  (1.30x reduction)
+Size:        57.0 MB  →     46.5 MB  (1.23x reduction)
+[FP32]   Memory: 56.98 MB   Params: 11937127
+[Pruned] Memory: 46.50 MB   Params: 9189607
+
+--- Pruned evaluation on testsets/Set5/HR (cuda) ---
+[Pruned]   0 baby                  PSNR: 30.13 dB  SSIM: 0.8503  PSNR_Y: 31.45 dB  SSIM_Y: 0.8724
+[Pruned]   1 bird                  PSNR: 26.00 dB  SSIM: 0.8021  PSNR_Y: 27.58 dB  SSIM_Y: 0.8294
+[Pruned]   2 butterfly             PSNR: 27.41 dB  SSIM: 0.9150  PSNR_Y: 28.87 dB  SSIM_Y: 0.9315
+[Pruned]   3 head                  PSNR: 28.89 dB  SSIM: 0.7117  PSNR_Y: 31.36 dB  SSIM_Y: 0.7822
+[Pruned]   4 woman                 PSNR: 27.45 dB  SSIM: 0.8925  PSNR_Y: 28.72 dB  SSIM_Y: 0.9033
+
+[Pruned] Avg  PSNR: 27.98 dB  SSIM: 0.8343
+[Pruned] Avg  PSNR_Y: 29.60 dB  SSIM_Y: 0.8638
+[Pruned] Avg  Runtime: 0.057 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 32.8798 → 27.9765  (Δ = -4.9033 dB)
+  SSIM   : 0.9078 → 0.8343  (Δ = -0.0735    )
+  PSNR_Y : 34.8915 → 29.5955  (Δ = -5.2960 dB)
+  SSIM_Y : 0.9312 → 0.8638  (Δ = -0.0675    )
+  RUNTIME: 0.123 s/img → 0.057 s/img  (2.18x faster)
+Saved pruned model → model_zoo/swinir_pruned/001_classicalSR_DIV2K_s48w8_SwinIR-M_x3_mlp75_attn4h.pth  (46.5 MB on disk)
+
+Done.
+[Sun Mar  8 02:34:37 PM PDT 2026] Scale: x4
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=classical_sr  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DIV2K_s48w8_SwinIR-M_x4.pth
+FP32 model: 11,900,199 params  |  56.8 MB
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 32.47 dB  SSIM: 0.8728  PSNR_Y: 33.99 dB  SSIM_Y: 0.8972
+[FP32]   1 bird                  PSNR: 33.41 dB  SSIM: 0.9328  PSNR_Y: 35.65 dB  SSIM_Y: 0.9524
+[FP32]   2 butterfly             PSNR: 28.21 dB  SSIM: 0.9211  PSNR_Y: 29.63 dB  SSIM_Y: 0.9372
+[FP32]   3 head                  PSNR: 30.04 dB  SSIM: 0.7251  PSNR_Y: 33.10 dB  SSIM_Y: 0.8012
+[FP32]   4 woman                 PSNR: 29.84 dB  SSIM: 0.9120  PSNR_Y: 31.22 dB  SSIM_Y: 0.9226
+
+[FP32] Avg  PSNR: 30.80 dB  SSIM: 0.8728
+[FP32] Avg  PSNR_Y: 32.72 dB  SSIM_Y: 0.9021
+[FP32] Avg  Runtime: 0.117 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,900,199 →    9,152,679  (1.30x reduction)
+Size:        56.8 MB  →     46.4 MB  (1.23x reduction)
+[FP32]   Memory: 56.84 MB   Params: 11900199
+[Pruned] Memory: 46.36 MB   Params: 9152679
+
+--- Pruned evaluation on testsets/Set5/HR (cuda) ---
+[Pruned]   0 baby                  PSNR: 27.40 dB  SSIM: 0.7804  PSNR_Y: 28.70 dB  SSIM_Y: 0.8104
+[Pruned]   1 bird                  PSNR: 23.38 dB  SSIM: 0.6958  PSNR_Y: 24.95 dB  SSIM_Y: 0.7289
+[Pruned]   2 butterfly             PSNR: 24.80 dB  SSIM: 0.8620  PSNR_Y: 26.34 dB  SSIM_Y: 0.8893
+[Pruned]   3 head                  PSNR: 27.32 dB  SSIM: 0.6428  PSNR_Y: 29.59 dB  SSIM_Y: 0.7215
+[Pruned]   4 woman                 PSNR: 24.18 dB  SSIM: 0.8039  PSNR_Y: 25.50 dB  SSIM_Y: 0.8229
+
+[Pruned] Avg  PSNR: 25.42 dB  SSIM: 0.7570
+[Pruned] Avg  PSNR_Y: 27.02 dB  SSIM_Y: 0.7946
+[Pruned] Avg  Runtime: 0.049 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 30.7951 → 25.4173  (Δ = -5.3778 dB)
+  SSIM   : 0.8728 → 0.7570  (Δ = -0.1158    )
+  PSNR_Y : 32.7187 → 27.0172  (Δ = -5.7015 dB)
+  SSIM_Y : 0.9021 → 0.7946  (Δ = -0.1075    )
+  RUNTIME: 0.117 s/img → 0.049 s/img  (2.39x faster)
+Saved pruned model → model_zoo/swinir_pruned/001_classicalSR_DIV2K_s48w8_SwinIR-M_x4_mlp75_attn4h.pth  (46.4 MB on disk)
+
+Done.
+[Sun Mar  8 02:34:44 PM PDT 2026] Scale: x8
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=classical_sr  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DIV2K_s48w8_SwinIR-M_x8.pth
+FP32 model: 12,047,911 params  |  57.4 MB
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 28.03 dB  SSIM: 0.7476  PSNR_Y: 29.32 dB  SSIM_Y: 0.7852
+[FP32]   1 bird                  PSNR: 26.27 dB  SSIM: 0.7737  PSNR_Y: 28.33 dB  SSIM_Y: 0.8125
+[FP32]   2 butterfly             PSNR: 21.92 dB  SSIM: 0.7912  PSNR_Y: 23.23 dB  SSIM_Y: 0.8237
+[FP32]   3 head                  PSNR: 27.83 dB  SSIM: 0.6209  PSNR_Y: 30.40 dB  SSIM_Y: 0.7087
+[FP32]   4 woman                 PSNR: 24.21 dB  SSIM: 0.7832  PSNR_Y: 25.58 dB  SSIM_Y: 0.8084
+
+[FP32] Avg  PSNR: 25.65 dB  SSIM: 0.7433
+[FP32] Avg  PSNR_Y: 27.37 dB  SSIM_Y: 0.7877
+[FP32] Avg  Runtime: 0.116 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    12,047,911 →    9,300,391  (1.30x reduction)
+Size:        57.4 MB  →     46.9 MB  (1.22x reduction)
+[FP32]   Memory: 57.41 MB   Params: 12047911
+[Pruned] Memory: 46.92 MB   Params: 9300391
+
+--- Pruned evaluation on testsets/Set5/HR (cuda) ---
+[Pruned]   0 baby                  PSNR: 23.76 dB  SSIM: 0.6645  PSNR_Y: 24.89 dB  SSIM_Y: 0.7059
+[Pruned]   1 bird                  PSNR: 18.95 dB  SSIM: 0.5108  PSNR_Y: 20.43 dB  SSIM_Y: 0.5736
+[Pruned]   2 butterfly             PSNR: 19.51 dB  SSIM: 0.6737  PSNR_Y: 20.80 dB  SSIM_Y: 0.7198
+[Pruned]   3 head                  PSNR: 25.96 dB  SSIM: 0.5608  PSNR_Y: 28.13 dB  SSIM_Y: 0.6541
+[Pruned]   4 woman                 PSNR: 21.22 dB  SSIM: 0.6635  PSNR_Y: 22.65 dB  SSIM_Y: 0.7087
+
+[Pruned] Avg  PSNR: 21.88 dB  SSIM: 0.6147
+[Pruned] Avg  PSNR_Y: 23.38 dB  SSIM_Y: 0.6724
+[Pruned] Avg  Runtime: 0.043 s/image
+
+--- Quality delta (FP32 → Pruned) ---
+  PSNR   : 25.6512 → 21.8801  (Δ = -3.7711 dB)
+  SSIM   : 0.7433 → 0.6147  (Δ = -0.1287    )
+  PSNR_Y : 27.3711 → 23.3806  (Δ = -3.9905 dB)
+  SSIM_Y : 0.7877 → 0.6724  (Δ = -0.1153    )
+  RUNTIME: 0.116 s/img → 0.043 s/img  (2.69x faster)
+Saved pruned model → model_zoo/swinir_pruned/001_classicalSR_DIV2K_s48w8_SwinIR-M_x8_mlp75_attn4h.pth  (47.0 MB on disk)
+
+Done.

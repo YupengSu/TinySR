@@ -1,0 +1,237 @@
+===== Classical SR (DF2K, patch=64) =====
+[Thu Mar  5 11:17:03 AM PST 2026] Scale: x2
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=classical_sr  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x2.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 64.2 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 37.53 dB  SSIM: 0.9613  PSNR_Y: 39.04 dB  SSIM_Y: 0.9686
+[FP32]   1 bird                  PSNR: 40.96 dB  SSIM: 0.9851  PSNR_Y: 43.69 dB  SSIM_Y: 0.9912
+[FP32]   2 butterfly             PSNR: 34.64 dB  SSIM: 0.9739  PSNR_Y: 36.28 dB  SSIM_Y: 0.9812
+[FP32]   3 head                  PSNR: 32.37 dB  SSIM: 0.8364  PSNR_Y: 36.12 dB  SSIM_Y: 0.8935
+[FP32]   4 woman                 PSNR: 35.56 dB  SSIM: 0.9735  PSNR_Y: 36.94 dB  SSIM_Y: 0.9769
+
+[FP32] Avg  PSNR: 36.21 dB  SSIM: 0.9460
+[FP32] Avg  PSNR_Y: 38.42 dB  SSIM_Y: 0.9623
+[FP32] Avg  Runtime: 0.169 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 64.2 MB  →  INT8 38.1 MB  (1.69x reduction)
+[FP32] Memory: 64.15 MB
+[INT8] Memory: 38.07 MB
+
+--- INT8 evaluation on testsets/Set5/HR (cuda) ---
+[INT8]   0 baby                  PSNR: 37.53 dB  SSIM: 0.9613  PSNR_Y: 39.04 dB  SSIM_Y: 0.9686
+[INT8]   1 bird                  PSNR: 40.95 dB  SSIM: 0.9851  PSNR_Y: 43.68 dB  SSIM_Y: 0.9912
+[INT8]   2 butterfly             PSNR: 34.63 dB  SSIM: 0.9739  PSNR_Y: 36.28 dB  SSIM_Y: 0.9812
+[INT8]   3 head                  PSNR: 32.37 dB  SSIM: 0.8364  PSNR_Y: 36.13 dB  SSIM_Y: 0.8935
+[INT8]   4 woman                 PSNR: 35.56 dB  SSIM: 0.9735  PSNR_Y: 36.94 dB  SSIM_Y: 0.9769
+
+[INT8] Avg  PSNR: 36.21 dB  SSIM: 0.9460
+[INT8] Avg  PSNR_Y: 38.41 dB  SSIM_Y: 0.9623
+[INT8] Avg  Runtime: 0.103 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 36.2109 → 36.2095  (Δ = -0.0014 dB)
+  SSIM   : 0.9460 → 0.9460  (Δ = -0.0000    )
+  PSNR_Y : 38.4155 → 38.4138  (Δ = -0.0017 dB)
+  SSIM_Y : 0.9623 → 0.9623  (Δ = -0.0000    )
+  RUNTIME: 0.169 s/img → 0.103 s/img  (1.65x faster)
+Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DF2K_s64w8_SwinIR-M_x2.pth  (38.1 MB on disk)
+
+Done.
+[Thu Mar  5 11:17:11 AM PST 2026] Scale: x3
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=classical_sr  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x3.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 64.9 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 34.34 dB  SSIM: 0.9158  PSNR_Y: 35.86 dB  SSIM_Y: 0.9318
+[FP32]   1 bird                  PSNR: 36.43 dB  SSIM: 0.9630  PSNR_Y: 38.87 dB  SSIM_Y: 0.9756
+[FP32]   2 butterfly             PSNR: 30.86 dB  SSIM: 0.9490  PSNR_Y: 32.33 dB  SSIM_Y: 0.9605
+[FP32]   3 head                  PSNR: 30.94 dB  SSIM: 0.7708  PSNR_Y: 34.25 dB  SSIM_Y: 0.8403
+[FP32]   4 woman                 PSNR: 32.19 dB  SSIM: 0.9442  PSNR_Y: 33.56 dB  SSIM_Y: 0.9510
+
+[FP32] Avg  PSNR: 32.95 dB  SSIM: 0.9086
+[FP32] Avg  PSNR_Y: 34.97 dB  SSIM_Y: 0.9318
+[FP32] Avg  Runtime: 0.140 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 64.9 MB  →  INT8 38.8 MB  (1.67x reduction)
+[FP32] Memory: 64.86 MB
+[INT8] Memory: 38.77 MB
+
+--- INT8 evaluation on testsets/Set5/HR (cuda) ---
+[INT8]   0 baby                  PSNR: 34.34 dB  SSIM: 0.9158  PSNR_Y: 35.86 dB  SSIM_Y: 0.9317
+[INT8]   1 bird                  PSNR: 36.44 dB  SSIM: 0.9630  PSNR_Y: 38.88 dB  SSIM_Y: 0.9756
+[INT8]   2 butterfly             PSNR: 30.87 dB  SSIM: 0.9490  PSNR_Y: 32.33 dB  SSIM_Y: 0.9605
+[INT8]   3 head                  PSNR: 30.95 dB  SSIM: 0.7709  PSNR_Y: 34.25 dB  SSIM_Y: 0.8403
+[INT8]   4 woman                 PSNR: 32.18 dB  SSIM: 0.9442  PSNR_Y: 33.55 dB  SSIM_Y: 0.9510
+
+[INT8] Avg  PSNR: 32.95 dB  SSIM: 0.9085
+[INT8] Avg  PSNR_Y: 34.97 dB  SSIM_Y: 0.9318
+[INT8] Avg  Runtime: 0.081 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 32.9533 → 32.9537  (Δ = +0.0004 dB)
+  SSIM   : 0.9086 → 0.9085  (Δ = -0.0000    )
+  PSNR_Y : 34.9739 → 34.9746  (Δ = +0.0008 dB)
+  SSIM_Y : 0.9318 → 0.9318  (Δ = -0.0000    )
+  RUNTIME: 0.140 s/img → 0.081 s/img  (1.72x faster)
+Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DF2K_s64w8_SwinIR-M_x3.pth  (38.8 MB on disk)
+
+Done.
+[Thu Mar  5 11:17:19 AM PST 2026] Scale: x4
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=classical_sr  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 64.7 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 32.54 dB  SSIM: 0.8744  PSNR_Y: 34.05 dB  SSIM_Y: 0.8985
+[FP32]   1 bird                  PSNR: 33.66 dB  SSIM: 0.9365  PSNR_Y: 35.93 dB  SSIM_Y: 0.9542
+[FP32]   2 butterfly             PSNR: 28.55 dB  SSIM: 0.9250  PSNR_Y: 29.96 dB  SSIM_Y: 0.9403
+[FP32]   3 head                  PSNR: 30.09 dB  SSIM: 0.7270  PSNR_Y: 33.16 dB  SSIM_Y: 0.8026
+[FP32]   4 woman                 PSNR: 30.11 dB  SSIM: 0.9163  PSNR_Y: 31.48 dB  SSIM_Y: 0.9262
+
+[FP32] Avg  PSNR: 30.99 dB  SSIM: 0.8758
+[FP32] Avg  PSNR_Y: 32.92 dB  SSIM_Y: 0.9044
+[FP32] Avg  Runtime: 0.129 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 64.7 MB  →  INT8 38.6 MB  (1.68x reduction)
+[FP32] Memory: 64.72 MB
+[INT8] Memory: 38.63 MB
+
+--- INT8 evaluation on testsets/Set5/HR (cuda) ---
+[INT8]   0 baby                  PSNR: 32.54 dB  SSIM: 0.8745  PSNR_Y: 34.06 dB  SSIM_Y: 0.8985
+[INT8]   1 bird                  PSNR: 33.66 dB  SSIM: 0.9366  PSNR_Y: 35.93 dB  SSIM_Y: 0.9541
+[INT8]   2 butterfly             PSNR: 28.55 dB  SSIM: 0.9250  PSNR_Y: 29.96 dB  SSIM_Y: 0.9403
+[INT8]   3 head                  PSNR: 30.09 dB  SSIM: 0.7269  PSNR_Y: 33.16 dB  SSIM_Y: 0.8026
+[INT8]   4 woman                 PSNR: 30.11 dB  SSIM: 0.9163  PSNR_Y: 31.48 dB  SSIM_Y: 0.9261
+
+[INT8] Avg  PSNR: 30.99 dB  SSIM: 0.8758
+[INT8] Avg  PSNR_Y: 32.92 dB  SSIM_Y: 0.9043
+[INT8] Avg  Runtime: 0.063 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 30.9883 → 30.9889  (Δ = +0.0006 dB)
+  SSIM   : 0.8758 → 0.8758  (Δ = -0.0000    )
+  PSNR_Y : 32.9159 → 32.9160  (Δ = +0.0001 dB)
+  SSIM_Y : 0.9044 → 0.9043  (Δ = -0.0000    )
+  RUNTIME: 0.129 s/img → 0.063 s/img  (2.04x faster)
+Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DF2K_s64w8_SwinIR-M_x4.pth  (38.7 MB on disk)
+
+Done.
+[Thu Mar  5 11:17:27 AM PST 2026] Scale: x8
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=classical_sr  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/001_classicalSR_DF2K_s64w8_SwinIR-M_x8.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 65.3 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/Set5/HR ---
+[FP32]   0 baby                  PSNR: 28.09 dB  SSIM: 0.7499  PSNR_Y: 29.39 dB  SSIM_Y: 0.7874
+[FP32]   1 bird                  PSNR: 26.51 dB  SSIM: 0.7850  PSNR_Y: 28.61 dB  SSIM_Y: 0.8221
+[FP32]   2 butterfly             PSNR: 22.08 dB  SSIM: 0.8061  PSNR_Y: 23.38 dB  SSIM_Y: 0.8340
+[FP32]   3 head                  PSNR: 27.90 dB  SSIM: 0.6230  PSNR_Y: 30.49 dB  SSIM_Y: 0.7102
+[FP32]   4 woman                 PSNR: 24.53 dB  SSIM: 0.7922  PSNR_Y: 25.91 dB  SSIM_Y: 0.8168
+
+[FP32] Avg  PSNR: 25.82 dB  SSIM: 0.7512
+[FP32] Avg  PSNR_Y: 27.55 dB  SSIM_Y: 0.7941
+[FP32] Avg  Runtime: 0.115 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 65.3 MB  →  INT8 39.2 MB  (1.67x reduction)
+[FP32] Memory: 65.28 MB
+[INT8] Memory: 39.20 MB
+
+--- INT8 evaluation on testsets/Set5/HR (cuda) ---
+[INT8]   0 baby                  PSNR: 28.10 dB  SSIM: 0.7501  PSNR_Y: 29.40 dB  SSIM_Y: 0.7875
+[INT8]   1 bird                  PSNR: 26.51 dB  SSIM: 0.7850  PSNR_Y: 28.61 dB  SSIM_Y: 0.8222
+[INT8]   2 butterfly             PSNR: 22.10 dB  SSIM: 0.8059  PSNR_Y: 23.40 dB  SSIM_Y: 0.8340
+[INT8]   3 head                  PSNR: 27.90 dB  SSIM: 0.6229  PSNR_Y: 30.49 dB  SSIM_Y: 0.7101
+[INT8]   4 woman                 PSNR: 24.54 dB  SSIM: 0.7923  PSNR_Y: 25.91 dB  SSIM_Y: 0.8169
+
+[INT8] Avg  PSNR: 25.83 dB  SSIM: 0.7513
+[INT8] Avg  PSNR_Y: 27.56 dB  SSIM_Y: 0.7942
+[INT8] Avg  Runtime: 0.056 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 25.8240 → 25.8295  (Δ = +0.0055 dB)
+  SSIM   : 0.7512 → 0.7513  (Δ = +0.0000    )
+  PSNR_Y : 27.5550 → 27.5612  (Δ = +0.0062 dB)
+  SSIM_Y : 0.7941 → 0.7942  (Δ = +0.0000    )
+  RUNTIME: 0.115 s/img → 0.056 s/img  (2.05x faster)
+Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DF2K_s64w8_SwinIR-M_x8.pth  (39.3 MB on disk)
+
+Done.

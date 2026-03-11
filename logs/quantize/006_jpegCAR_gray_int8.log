@@ -1,0 +1,221 @@
+===== Grayscale JPEG CAR =====
+[Thu Mar  5 11:22:45 AM PST 2026] JPEG quality: 10
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=jpeg_car  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/006_CAR_DFWB_s126w7_SwinIR-M_jpeg10.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 98.1 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/classic5 ---
+[FP32]   0 baboon                PSNR: 25.36 dB  SSIM: 0.7094
+[FP32]   1 barbara               PSNR: 29.81 dB  SSIM: 0.8712
+[FP32]   2 boats                 PSNR: 30.29 dB  SSIM: 0.8186
+[FP32]   3 lena                  PSNR: 33.03 dB  SSIM: 0.8800
+[FP32]   4 peppers               PSNR: 32.85 dB  SSIM: 0.8452
+
+[FP32] Avg  PSNR: 30.27 dB  SSIM: 0.8249
+[FP32] Avg  Runtime: 1.098 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 98.1 MB  →  INT8 72.0 MB  (1.36x reduction)
+[FP32] Memory: 98.08 MB
+[INT8] Memory: 72.00 MB
+
+--- INT8 evaluation on testsets/classic5 (cuda) ---
+[INT8]   0 baboon                PSNR: 25.36 dB  SSIM: 0.7094
+[INT8]   1 barbara               PSNR: 29.81 dB  SSIM: 0.8712
+[INT8]   2 boats                 PSNR: 30.29 dB  SSIM: 0.8186
+[INT8]   3 lena                  PSNR: 33.02 dB  SSIM: 0.8800
+[INT8]   4 peppers               PSNR: 32.85 dB  SSIM: 0.8452
+
+[INT8] Avg  PSNR: 30.27 dB  SSIM: 0.8249
+[INT8] Avg  Runtime: 1.101 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 30.2677 → 30.2670  (Δ = -0.0007 dB)
+  SSIM   : 0.8249 → 0.8249  (Δ = -0.0000    )
+  RUNTIME: 1.098 s/img → 1.101 s/img  (1.00x slower)
+Saved quantized model → model_zoo/swinir_quantized_int8/006_CAR_DFWB_s126w7_SwinIR-M_jpeg10.pth  (72.0 MB on disk)
+
+Done.
+[Thu Mar  5 11:23:03 AM PST 2026] JPEG quality: 20
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=jpeg_car  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/006_CAR_DFWB_s126w7_SwinIR-M_jpeg20.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 98.1 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/classic5 ---
+[FP32]   0 baboon                PSNR: 27.32 dB  SSIM: 0.8098
+[FP32]   1 barbara               PSNR: 33.18 dB  SSIM: 0.9233
+[FP32]   2 boats                 PSNR: 32.59 dB  SSIM: 0.8697
+[FP32]   3 lena                  PSNR: 35.12 dB  SSIM: 0.9058
+[FP32]   4 peppers               PSNR: 34.41 dB  SSIM: 0.8655
+
+[FP32] Avg  PSNR: 32.52 dB  SSIM: 0.8748
+[FP32] Avg  Runtime: 1.174 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 98.1 MB  →  INT8 72.0 MB  (1.36x reduction)
+[FP32] Memory: 98.08 MB
+[INT8] Memory: 72.00 MB
+
+--- INT8 evaluation on testsets/classic5 (cuda) ---
+[INT8]   0 baboon                PSNR: 27.32 dB  SSIM: 0.8097
+[INT8]   1 barbara               PSNR: 33.17 dB  SSIM: 0.9233
+[INT8]   2 boats                 PSNR: 32.59 dB  SSIM: 0.8697
+[INT8]   3 lena                  PSNR: 35.12 dB  SSIM: 0.9058
+[INT8]   4 peppers               PSNR: 34.41 dB  SSIM: 0.8655
+
+[INT8] Avg  PSNR: 32.52 dB  SSIM: 0.8748
+[INT8] Avg  Runtime: 1.115 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 32.5227 → 32.5224  (Δ = -0.0003 dB)
+  SSIM   : 0.8748 → 0.8748  (Δ = -0.0000    )
+  RUNTIME: 1.174 s/img → 1.115 s/img  (1.05x faster)
+Saved quantized model → model_zoo/swinir_quantized_int8/006_CAR_DFWB_s126w7_SwinIR-M_jpeg20.pth  (72.0 MB on disk)
+
+Done.
+[Thu Mar  5 11:23:21 AM PST 2026] JPEG quality: 30
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=jpeg_car  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/006_CAR_DFWB_s126w7_SwinIR-M_jpeg30.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 98.1 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/classic5 ---
+[FP32]   0 baboon                PSNR: 28.55 dB  SSIM: 0.8532
+[FP32]   1 barbara               PSNR: 34.94 dB  SSIM: 0.9415
+[FP32]   2 boats                 PSNR: 33.84 dB  SSIM: 0.8901
+[FP32]   3 lena                  PSNR: 36.23 dB  SSIM: 0.9188
+[FP32]   4 peppers               PSNR: 35.13 dB  SSIM: 0.8768
+
+[FP32] Avg  PSNR: 33.74 dB  SSIM: 0.8961
+[FP32] Avg  Runtime: 1.155 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 98.1 MB  →  INT8 72.0 MB  (1.36x reduction)
+[FP32] Memory: 98.08 MB
+[INT8] Memory: 72.00 MB
+
+--- INT8 evaluation on testsets/classic5 (cuda) ---
+[INT8]   0 baboon                PSNR: 28.55 dB  SSIM: 0.8532
+[INT8]   1 barbara               PSNR: 34.94 dB  SSIM: 0.9415
+[INT8]   2 boats                 PSNR: 33.84 dB  SSIM: 0.8902
+[INT8]   3 lena                  PSNR: 36.23 dB  SSIM: 0.9188
+[INT8]   4 peppers               PSNR: 35.13 dB  SSIM: 0.8768
+
+[INT8] Avg  PSNR: 33.74 dB  SSIM: 0.8961
+[INT8] Avg  Runtime: 1.078 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 33.7364 → 33.7359  (Δ = -0.0005 dB)
+  SSIM   : 0.8961 → 0.8961  (Δ = +0.0000    )
+  RUNTIME: 1.155 s/img → 1.078 s/img  (1.07x faster)
+Saved quantized model → model_zoo/swinir_quantized_int8/006_CAR_DFWB_s126w7_SwinIR-M_jpeg30.pth  (72.0 MB on disk)
+
+Done.
+[Thu Mar  5 11:23:39 AM PST 2026] JPEG quality: 40
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torchao/quantization/quant_api.py:1356: UserWarning: Config Deprecation: version 1 of Int8WeightOnlyConfig is deprecated and will no longer be supported in a future release, please use version 2, see https://github.com/pytorch/ao/issues/2752 for more details
+  warnings.warn(
+
+============================================================
+  SwinIR PTQ  |  task=jpeg_car  |  INT8 weight-only
+============================================================
+Loading FP32 model from model_zoo/swinir/006_CAR_DFWB_s126w7_SwinIR-M_jpeg40.pth
+FP32 model: 144 nn.Linear layers to be quantized
+FP32 size : 98.1 MB
+  e.g. layers.0.residual_group.blocks.0.attn.qkv
+       layers.0.residual_group.blocks.0.attn.proj
+       layers.0.residual_group.blocks.0.mlp.fc1
+       layers.0.residual_group.blocks.0.mlp.fc2
+       layers.0.residual_group.blocks.1.attn.qkv
+       layers.0.residual_group.blocks.1.attn.proj
+
+--- FP32 Baseline on testsets/classic5 ---
+[FP32]   0 baboon                PSNR: 29.49 dB  SSIM: 0.8785
+[FP32]   1 barbara               PSNR: 35.94 dB  SSIM: 0.9498
+[FP32]   2 boats                 PSNR: 34.60 dB  SSIM: 0.9002
+[FP32]   3 lena                  PSNR: 36.95 dB  SSIM: 0.9276
+[FP32]   4 peppers               PSNR: 35.63 dB  SSIM: 0.8851
+
+[FP32] Avg  PSNR: 34.52 dB  SSIM: 0.9082
+[FP32] Avg  Runtime: 1.041 s/image
+
+--- Applying INT8 PTQ ---
+[torchao] INT8 weight-only: 144/144 nn.Linear quantized
+
+Model size:  FP32 98.1 MB  →  INT8 72.0 MB  (1.36x reduction)
+[FP32] Memory: 98.08 MB
+[INT8] Memory: 72.00 MB
+
+--- INT8 evaluation on testsets/classic5 (cuda) ---
+[INT8]   0 baboon                PSNR: 29.49 dB  SSIM: 0.8785
+[INT8]   1 barbara               PSNR: 35.94 dB  SSIM: 0.9497
+[INT8]   2 boats                 PSNR: 34.61 dB  SSIM: 0.9002
+[INT8]   3 lena                  PSNR: 36.95 dB  SSIM: 0.9276
+[INT8]   4 peppers               PSNR: 35.63 dB  SSIM: 0.8851
+
+[INT8] Avg  PSNR: 34.52 dB  SSIM: 0.9082
+[INT8] Avg  Runtime: 1.071 s/image
+
+--- Quality delta (FP32 → INT8) ---
+  PSNR   : 34.5218 → 34.5222  (Δ = +0.0004 dB)
+  SSIM   : 0.9082 → 0.9082  (Δ = -0.0000    )
+  RUNTIME: 1.041 s/img → 1.071 s/img  (0.97x slower)
+Saved quantized model → model_zoo/swinir_quantized_int8/006_CAR_DFWB_s126w7_SwinIR-M_jpeg40.pth  (72.0 MB on disk)
+
+Done.

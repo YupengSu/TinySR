@@ -1,0 +1,85 @@
+===== Color Denoising =====
+[Wed Mar  4 03:30:35 PM PST 2026] Noise level: 15
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/005_colorDN_DFWB_s128w8_SwinIR-M_noise15.pth
+Testing 0 1                    - PSNR: 32.18 dB; SSIM: 0.9201; PSNRB: 0.00 dB;PSNR_Y: 35.05 dB; SSIM_Y: 0.9435; PSNRB_Y: 0.00 dB.
+Testing 1 10                   - PSNR: 36.36 dB; SSIM: 0.9440; PSNRB: 0.00 dB;PSNR_Y: 39.46 dB; SSIM_Y: 0.9675; PSNRB_Y: 0.00 dB.
+Testing 2 11                   - PSNR: 36.56 dB; SSIM: 0.9353; PSNRB: 0.00 dB;PSNR_Y: 38.85 dB; SSIM_Y: 0.9565; PSNRB_Y: 0.00 dB.
+Testing 3 12                   - PSNR: 37.85 dB; SSIM: 0.9479; PSNRB: 0.00 dB;PSNR_Y: 40.72 dB; SSIM_Y: 0.9762; PSNRB_Y: 0.00 dB.
+Testing 4 13                   - PSNR: 39.42 dB; SSIM: 0.9352; PSNRB: 0.00 dB;PSNR_Y: 43.45 dB; SSIM_Y: 0.9759; PSNRB_Y: 0.00 dB.
+Testing 5 14                   - PSNR: 36.99 dB; SSIM: 0.9249; PSNRB: 0.00 dB;PSNR_Y: 40.33 dB; SSIM_Y: 0.9615; PSNRB_Y: 0.00 dB.
+Testing 6 15                   - PSNR: 36.92 dB; SSIM: 0.9236; PSNRB: 0.00 dB;PSNR_Y: 40.34 dB; SSIM_Y: 0.9585; PSNRB_Y: 0.00 dB.
+Testing 7 16                   - PSNR: 33.37 dB; SSIM: 0.9287; PSNRB: 0.00 dB;PSNR_Y: 35.10 dB; SSIM_Y: 0.9479; PSNRB_Y: 0.00 dB.
+Testing 8 17                   - PSNR: 33.63 dB; SSIM: 0.9240; PSNRB: 0.00 dB;PSNR_Y: 36.99 dB; SSIM_Y: 0.9487; PSNRB_Y: 0.00 dB.
+Testing 9 18                   - PSNR: 34.33 dB; SSIM: 0.9251; PSNRB: 0.00 dB;PSNR_Y: 36.00 dB; SSIM_Y: 0.9431; PSNRB_Y: 0.00 dB.
+Testing 10 2                    - PSNR: 34.40 dB; SSIM: 0.9191; PSNRB: 0.00 dB;PSNR_Y: 37.65 dB; SSIM_Y: 0.9545; PSNRB_Y: 0.00 dB.
+Testing 11 3                    - PSNR: 33.79 dB; SSIM: 0.9513; PSNRB: 0.00 dB;PSNR_Y: 36.31 dB; SSIM_Y: 0.9687; PSNRB_Y: 0.00 dB.
+Testing 12 4                    - PSNR: 37.10 dB; SSIM: 0.9670; PSNRB: 0.00 dB;PSNR_Y: 39.88 dB; SSIM_Y: 0.9784; PSNRB_Y: 0.00 dB.
+Testing 13 5                    - PSNR: 34.80 dB; SSIM: 0.9287; PSNRB: 0.00 dB;PSNR_Y: 37.85 dB; SSIM_Y: 0.9546; PSNRB_Y: 0.00 dB.
+Testing 14 6                    - PSNR: 35.91 dB; SSIM: 0.9344; PSNRB: 0.00 dB;PSNR_Y: 39.09 dB; SSIM_Y: 0.9608; PSNRB_Y: 0.00 dB.
+Testing 15 7                    - PSNR: 33.88 dB; SSIM: 0.9198; PSNRB: 0.00 dB;PSNR_Y: 35.67 dB; SSIM_Y: 0.9386; PSNRB_Y: 0.00 dB.
+Testing 16 8                    - PSNR: 37.06 dB; SSIM: 0.9532; PSNRB: 0.00 dB;PSNR_Y: 39.31 dB; SSIM_Y: 0.9733; PSNRB_Y: 0.00 dB.
+Testing 17 9                    - PSNR: 36.46 dB; SSIM: 0.9399; PSNRB: 0.00 dB;PSNR_Y: 39.43 dB; SSIM_Y: 0.9682; PSNRB_Y: 0.00 dB.
+
+results/swinir_color_dn_noise15 
+-- Average PSNR/SSIM(RGB): 35.61 dB; 0.9346
+-- Average PSNR_Y/SSIM_Y: 38.42 dB; 0.9598
+[Wed Mar  4 03:31:20 PM PST 2026] Noise level: 25
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/005_colorDN_DFWB_s128w8_SwinIR-M_noise25.pth
+Testing 0 1                    - PSNR: 29.69 dB; SSIM: 0.8764; PSNRB: 0.00 dB;PSNR_Y: 32.38 dB; SSIM_Y: 0.9076; PSNRB_Y: 0.00 dB.
+Testing 1 10                   - PSNR: 34.03 dB; SSIM: 0.9183; PSNRB: 0.00 dB;PSNR_Y: 36.86 dB; SSIM_Y: 0.9481; PSNRB_Y: 0.00 dB.
+Testing 2 11                   - PSNR: 34.28 dB; SSIM: 0.9063; PSNRB: 0.00 dB;PSNR_Y: 36.35 dB; SSIM_Y: 0.9320; PSNRB_Y: 0.00 dB.
+Testing 3 12                   - PSNR: 35.64 dB; SSIM: 0.9359; PSNRB: 0.00 dB;PSNR_Y: 38.05 dB; SSIM_Y: 0.9664; PSNRB_Y: 0.00 dB.
+Testing 4 13                   - PSNR: 38.09 dB; SSIM: 0.9288; PSNRB: 0.00 dB;PSNR_Y: 41.60 dB; SSIM_Y: 0.9715; PSNRB_Y: 0.00 dB.
+Testing 5 14                   - PSNR: 35.28 dB; SSIM: 0.9068; PSNRB: 0.00 dB;PSNR_Y: 38.40 dB; SSIM_Y: 0.9488; PSNRB_Y: 0.00 dB.
+Testing 6 15                   - PSNR: 35.07 dB; SSIM: 0.8994; PSNRB: 0.00 dB;PSNR_Y: 38.30 dB; SSIM_Y: 0.9424; PSNRB_Y: 0.00 dB.
+Testing 7 16                   - PSNR: 30.66 dB; SSIM: 0.8797; PSNRB: 0.00 dB;PSNR_Y: 32.16 dB; SSIM_Y: 0.9045; PSNRB_Y: 0.00 dB.
+Testing 8 17                   - PSNR: 30.97 dB; SSIM: 0.8764; PSNRB: 0.00 dB;PSNR_Y: 34.21 dB; SSIM_Y: 0.9118; PSNRB_Y: 0.00 dB.
+Testing 9 18                   - PSNR: 32.04 dB; SSIM: 0.8867; PSNRB: 0.00 dB;PSNR_Y: 33.45 dB; SSIM_Y: 0.9061; PSNRB_Y: 0.00 dB.
+Testing 10 2                    - PSNR: 32.20 dB; SSIM: 0.8855; PSNRB: 0.00 dB;PSNR_Y: 35.13 dB; SSIM_Y: 0.9291; PSNRB_Y: 0.00 dB.
+Testing 11 3                    - PSNR: 31.02 dB; SSIM: 0.9252; PSNRB: 0.00 dB;PSNR_Y: 33.31 dB; SSIM_Y: 0.9465; PSNRB_Y: 0.00 dB.
+Testing 12 4                    - PSNR: 34.57 dB; SSIM: 0.9513; PSNRB: 0.00 dB;PSNR_Y: 37.15 dB; SSIM_Y: 0.9664; PSNRB_Y: 0.00 dB.
+Testing 13 5                    - PSNR: 32.38 dB; SSIM: 0.8959; PSNRB: 0.00 dB;PSNR_Y: 35.32 dB; SSIM_Y: 0.9284; PSNRB_Y: 0.00 dB.
+Testing 14 6                    - PSNR: 33.52 dB; SSIM: 0.9041; PSNRB: 0.00 dB;PSNR_Y: 36.48 dB; SSIM_Y: 0.9372; PSNRB_Y: 0.00 dB.
+Testing 15 7                    - PSNR: 31.42 dB; SSIM: 0.8710; PSNRB: 0.00 dB;PSNR_Y: 33.09 dB; SSIM_Y: 0.8959; PSNRB_Y: 0.00 dB.
+Testing 16 8                    - PSNR: 34.69 dB; SSIM: 0.9339; PSNRB: 0.00 dB;PSNR_Y: 36.70 dB; SSIM_Y: 0.9602; PSNRB_Y: 0.00 dB.
+Testing 17 9                    - PSNR: 34.11 dB; SSIM: 0.9207; PSNRB: 0.00 dB;PSNR_Y: 36.80 dB; SSIM_Y: 0.9529; PSNRB_Y: 0.00 dB.
+
+results/swinir_color_dn_noise25 
+-- Average PSNR/SSIM(RGB): 33.31 dB; 0.9057
+-- Average PSNR_Y/SSIM_Y: 35.87 dB; 0.9364
+[Wed Mar  4 03:32:04 PM PST 2026] Noise level: 50
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/005_colorDN_DFWB_s128w8_SwinIR-M_noise50.pth
+Testing 0 1                    - PSNR: 26.54 dB; SSIM: 0.7914; PSNRB: 0.00 dB;PSNR_Y: 29.08 dB; SSIM_Y: 0.8371; PSNRB_Y: 0.00 dB.
+Testing 1 10                   - PSNR: 30.82 dB; SSIM: 0.8635; PSNRB: 0.00 dB;PSNR_Y: 33.39 dB; SSIM_Y: 0.9051; PSNRB_Y: 0.00 dB.
+Testing 2 11                   - PSNR: 31.30 dB; SSIM: 0.8528; PSNRB: 0.00 dB;PSNR_Y: 33.17 dB; SSIM_Y: 0.8845; PSNRB_Y: 0.00 dB.
+Testing 3 12                   - PSNR: 32.21 dB; SSIM: 0.9063; PSNRB: 0.00 dB;PSNR_Y: 34.27 dB; SSIM_Y: 0.9412; PSNRB_Y: 0.00 dB.
+Testing 4 13                   - PSNR: 35.35 dB; SSIM: 0.9139; PSNRB: 0.00 dB;PSNR_Y: 38.32 dB; SSIM_Y: 0.9598; PSNRB_Y: 0.00 dB.
+Testing 5 14                   - PSNR: 32.88 dB; SSIM: 0.8772; PSNRB: 0.00 dB;PSNR_Y: 35.79 dB; SSIM_Y: 0.9266; PSNRB_Y: 0.00 dB.
+Testing 6 15                   - PSNR: 32.59 dB; SSIM: 0.8629; PSNRB: 0.00 dB;PSNR_Y: 35.60 dB; SSIM_Y: 0.9169; PSNRB_Y: 0.00 dB.
+Testing 7 16                   - PSNR: 27.18 dB; SSIM: 0.7745; PSNRB: 0.00 dB;PSNR_Y: 28.49 dB; SSIM_Y: 0.8059; PSNRB_Y: 0.00 dB.
+Testing 8 17                   - PSNR: 27.52 dB; SSIM: 0.7808; PSNRB: 0.00 dB;PSNR_Y: 30.71 dB; SSIM_Y: 0.8332; PSNRB_Y: 0.00 dB.
+Testing 9 18                   - PSNR: 29.34 dB; SSIM: 0.8223; PSNRB: 0.00 dB;PSNR_Y: 30.58 dB; SSIM_Y: 0.8416; PSNRB_Y: 0.00 dB.
+Testing 10 2                    - PSNR: 29.29 dB; SSIM: 0.8201; PSNRB: 0.00 dB;PSNR_Y: 31.90 dB; SSIM_Y: 0.8773; PSNRB_Y: 0.00 dB.
+Testing 11 3                    - PSNR: 27.36 dB; SSIM: 0.8632; PSNRB: 0.00 dB;PSNR_Y: 29.46 dB; SSIM_Y: 0.8918; PSNRB_Y: 0.00 dB.
+Testing 12 4                    - PSNR: 31.04 dB; SSIM: 0.9221; PSNRB: 0.00 dB;PSNR_Y: 33.43 dB; SSIM_Y: 0.9426; PSNRB_Y: 0.00 dB.
+Testing 13 5                    - PSNR: 29.16 dB; SSIM: 0.8334; PSNRB: 0.00 dB;PSNR_Y: 32.03 dB; SSIM_Y: 0.8761; PSNRB_Y: 0.00 dB.
+Testing 14 6                    - PSNR: 30.11 dB; SSIM: 0.8406; PSNRB: 0.00 dB;PSNR_Y: 32.94 dB; SSIM_Y: 0.8856; PSNRB_Y: 0.00 dB.
+Testing 15 7                    - PSNR: 28.81 dB; SSIM: 0.7848; PSNRB: 0.00 dB;PSNR_Y: 30.40 dB; SSIM_Y: 0.8206; PSNRB_Y: 0.00 dB.
+Testing 16 8                    - PSNR: 31.35 dB; SSIM: 0.8928; PSNRB: 0.00 dB;PSNR_Y: 33.17 dB; SSIM_Y: 0.9324; PSNRB_Y: 0.00 dB.
+Testing 17 9                    - PSNR: 30.71 dB; SSIM: 0.8796; PSNRB: 0.00 dB;PSNR_Y: 33.21 dB; SSIM_Y: 0.9183; PSNRB_Y: 0.00 dB.
+
+results/swinir_color_dn_noise50 
+-- Average PSNR/SSIM(RGB): 30.20 dB; 0.8490
+-- Average PSNR_Y/SSIM_Y: 32.55 dB; 0.8887

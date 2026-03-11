@@ -1,0 +1,81 @@
+===== Real-World SR (SwinIR-L) =====
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=real_sr  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN.pth
+FP32 model: 28,013,059 params  |  135.9 MB
+
+--- FP32 Baseline on testsets/RealSRSet+5images ---
+[FP32]   0 00003               
+[FP32]   1 0014                
+[FP32]   2 0030                
+[FP32]   3 ADE_val_00000114    
+[FP32]   4 Lincoln             
+[FP32]   5 OST_009             
+[FP32]   6 building            
+[FP32]   7 butterfly           
+[FP32]   8 butterfly2          
+[FP32]   9 chip                
+[FP32]  10 comic1              
+[FP32]  11 comic2              
+[FP32]  12 comic3              
+[FP32]  13 computer            
+[FP32]  14 dog                 
+[FP32]  15 dped_crop00061      
+[FP32]  16 foreman             
+[FP32]  17 frog                
+[FP32]  18 oldphoto2           
+[FP32]  19 oldphoto3           
+[FP32]  20 oldphoto6           
+[FP32]  21 painting            
+[FP32]  22 pattern             
+[FP32]  23 ppt3                
+[FP32]  24 tiger               
+[FP32] Avg  Runtime: 0.361 s/image
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 480 → 360  (keep 75%)
+  [Attn] heads  8 → 4
+  Pruned 54 MLP blocks, 54 Attn blocks
+
+Params:    28,013,059 →   18,607,339  (1.51x reduction)
+Size:       135.9 MB  →    100.0 MB  (1.36x reduction)
+[FP32]   Memory: 135.86 MB   Params: 28013059
+[Pruned] Memory: 99.98 MB   Params: 18607339
+
+--- Pruned evaluation on testsets/RealSRSet+5images (cuda) ---
+[Pruned]   0 00003               
+[Pruned]   1 0014                
+[Pruned]   2 0030                
+[Pruned]   3 ADE_val_00000114    
+[Pruned]   4 Lincoln             
+[Pruned]   5 OST_009             
+[Pruned]   6 building            
+[Pruned]   7 butterfly           
+[Pruned]   8 butterfly2          
+[Pruned]   9 chip                
+[Pruned]  10 comic1              
+[Pruned]  11 comic2              
+[Pruned]  12 comic3              
+[Pruned]  13 computer            
+[Pruned]  14 dog                 
+[Pruned]  15 dped_crop00061      
+[Pruned]  16 foreman             
+[Pruned]  17 frog                
+[Pruned]  18 oldphoto2           
+[Pruned]  19 oldphoto3           
+[Pruned]  20 oldphoto6           
+[Pruned]  21 painting            
+[Pruned]  22 pattern             
+[Pruned]  23 ppt3                
+[Pruned]  24 tiger               
+[Pruned] Avg  Runtime: 0.287 s/image
+  RUNTIME: 0.361 s/img → 0.287 s/img  (1.26x faster)
+Saved pruned model → model_zoo/swinir_pruned/003_realSR_BSRGAN_DFOWMFC_s64w8_SwinIR-L_x4_GAN_mlp75_attn4h.pth  (100.0 MB on disk)
+
+Done.

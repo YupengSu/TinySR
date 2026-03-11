@@ -1,0 +1,105 @@
+===== Color JPEG CAR =====
+[Sun Mar  8 02:41:09 PM PDT 2026] JPEG quality: 10
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_jpeg_car  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg10.pth
+FP32 model: 11,492,067 params  |  98.1 MB
+
+[INFO] Skipping FP32 baseline evaluation.
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,492,067 →    8,748,579  (1.31x reduction)
+Size:        98.1 MB  →     87.6 MB  (1.12x reduction)
+[FP32]   Memory: 98.11 MB   Params: 11492067
+[Pruned] Memory: 87.64 MB   Params: 8748579
+Saved pruned model → model_zoo/swinir_pruned/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg10_mlp75_attn4h.pth  (87.7 MB on disk)
+
+Done.
+[Sun Mar  8 02:41:13 PM PDT 2026] JPEG quality: 20
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_jpeg_car  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg20.pth
+FP32 model: 11,492,067 params  |  98.1 MB
+
+[INFO] Skipping FP32 baseline evaluation.
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,492,067 →    8,748,579  (1.31x reduction)
+Size:        98.1 MB  →     87.6 MB  (1.12x reduction)
+[FP32]   Memory: 98.11 MB   Params: 11492067
+[Pruned] Memory: 87.64 MB   Params: 8748579
+Saved pruned model → model_zoo/swinir_pruned/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg20_mlp75_attn4h.pth  (87.7 MB on disk)
+
+Done.
+[Sun Mar  8 02:41:18 PM PDT 2026] JPEG quality: 30
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_jpeg_car  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg30.pth
+FP32 model: 11,492,067 params  |  98.1 MB
+
+[INFO] Skipping FP32 baseline evaluation.
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,492,067 →    8,748,579  (1.31x reduction)
+Size:        98.1 MB  →     87.6 MB  (1.12x reduction)
+[FP32]   Memory: 98.11 MB   Params: 11492067
+[Pruned] Memory: 87.64 MB   Params: 8748579
+Saved pruned model → model_zoo/swinir_pruned/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg30_mlp75_attn4h.pth  (87.7 MB on disk)
+
+Done.
+[Sun Mar  8 02:41:22 PM PDT 2026] JPEG quality: 40
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+
+============================================================
+  SwinIR Structured Pruning  |  task=color_jpeg_car  |  MLP=75%+Attn=4heads
+============================================================
+Loading FP32 model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg40.pth
+FP32 model: 11,492,067 params  |  98.1 MB
+
+[INFO] Skipping FP32 baseline evaluation.
+
+--- Applying structured pruning (MLP=75%+Attn=4heads) ---
+  [MLP]  hidden 360 → 270  (keep 75%)
+  [Attn] heads  6 → 4
+  Pruned 36 MLP blocks, 36 Attn blocks
+
+Params:    11,492,067 →    8,748,579  (1.31x reduction)
+Size:        98.1 MB  →     87.6 MB  (1.12x reduction)
+[FP32]   Memory: 98.11 MB   Params: 11492067
+[Pruned] Memory: 87.64 MB   Params: 8748579
+Saved pruned model → model_zoo/swinir_pruned/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg40_mlp75_attn4h.pth  (87.7 MB on disk)
+
+Done.

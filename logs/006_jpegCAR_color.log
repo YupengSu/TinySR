@@ -1,0 +1,53 @@
+===== Color JPEG CAR =====
+[Wed Mar  4 03:33:55 PM PST 2026] JPEG quality: 10
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg10.pth
+Traceback (most recent call last):
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 309, in <module>
+    main()
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 112, in main
+    if img_gt is not None:
+       ^^^^^^
+UnboundLocalError: cannot access local variable 'img_gt' where it is not associated with a value
+[Wed Mar  4 03:34:02 PM PST 2026] JPEG quality: 20
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg20.pth
+Traceback (most recent call last):
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 309, in <module>
+    main()
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 112, in main
+    if img_gt is not None:
+       ^^^^^^
+UnboundLocalError: cannot access local variable 'img_gt' where it is not associated with a value
+[Wed Mar  4 03:34:08 PM PST 2026] JPEG quality: 30
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg30.pth
+Traceback (most recent call last):
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 309, in <module>
+    main()
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 112, in main
+    if img_gt is not None:
+       ^^^^^^
+UnboundLocalError: cannot access local variable 'img_gt' where it is not associated with a value
+[Wed Mar  4 03:34:15 PM PST 2026] JPEG quality: 40
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
+  warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
+/home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
+  return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
+loading model from model_zoo/swinir/006_colorCAR_DFWB_s126w7_SwinIR-M_jpeg40.pth
+Traceback (most recent call last):
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 309, in <module>
+    main()
+  File "/home/yupeng/workspace/SwinIR/main_test_swinir.py", line 112, in main
+    if img_gt is not None:
+       ^^^^^^
+UnboundLocalError: cannot access local variable 'img_gt' where it is not associated with a value
