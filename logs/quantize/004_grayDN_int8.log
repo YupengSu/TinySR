@@ -1,5 +1,5 @@
 ===== Grayscale Denoising =====
-[Thu Mar  5 11:18:39 AM PST 2026] Noise level: 15
+[Sat Mar 14 04:28:17 PM PDT 2026] Noise level: 15
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -35,7 +35,7 @@ FP32 size : 117.2 MB
 [FP32]  11 12                    PSNR: 32.83 dB  SSIM: 0.8915
 
 [FP32] Avg  PSNR: 33.36 dB  SSIM: 0.9110
-[FP32] Avg  Runtime: 0.635 s/image
+[FP32] Avg  Runtime: 0.771 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -59,16 +59,16 @@ Model size:  FP32 117.2 MB  →  INT8 91.1 MB  (1.29x reduction)
 [INT8]  11 12                    PSNR: 32.83 dB  SSIM: 0.8915
 
 [INT8] Avg  PSNR: 33.36 dB  SSIM: 0.9110
-[INT8] Avg  Runtime: 0.686 s/image
+[INT8] Avg  Runtime: 0.694 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 33.3632 → 33.3631  (Δ = -0.0001 dB)
   SSIM   : 0.9110 → 0.9110  (Δ = -0.0000    )
-  RUNTIME: 0.635 s/img → 0.686 s/img  (0.93x slower)
+  RUNTIME: 0.771 s/img → 0.694 s/img  (1.11x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/004_grayDN_DFWB_s128w8_SwinIR-M_noise15.pth  (91.2 MB on disk)
 
 Done.
-[Thu Mar  5 11:19:03 AM PST 2026] Noise level: 25
+[Sat Mar 14 04:28:43 PM PDT 2026] Noise level: 25
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -104,7 +104,7 @@ FP32 size : 117.2 MB
 [FP32]  11 12                    PSNR: 30.57 dB  SSIM: 0.8469
 
 [FP32] Avg  PSNR: 31.01 dB  SSIM: 0.8741
-[FP32] Avg  Runtime: 0.666 s/image
+[FP32] Avg  Runtime: 0.763 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -128,16 +128,16 @@ Model size:  FP32 117.2 MB  →  INT8 91.1 MB  (1.29x reduction)
 [INT8]  11 12                    PSNR: 30.57 dB  SSIM: 0.8469
 
 [INT8] Avg  PSNR: 31.01 dB  SSIM: 0.8741
-[INT8] Avg  Runtime: 0.669 s/image
+[INT8] Avg  Runtime: 0.688 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 31.0143 → 31.0139  (Δ = -0.0004 dB)
   SSIM   : 0.8741 → 0.8741  (Δ = -0.0000    )
-  RUNTIME: 0.666 s/img → 0.669 s/img  (1.00x slower)
+  RUNTIME: 0.763 s/img → 0.688 s/img  (1.11x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/004_grayDN_DFWB_s128w8_SwinIR-M_noise25.pth  (91.2 MB on disk)
 
 Done.
-[Thu Mar  5 11:19:26 AM PST 2026] Noise level: 50
+[Sat Mar 14 04:29:09 PM PDT 2026] Noise level: 50
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -173,7 +173,7 @@ FP32 size : 117.2 MB
 [FP32]  11 12                    PSNR: 27.53 dB  SSIM: 0.7625
 
 [FP32] Avg  PSNR: 27.91 dB  SSIM: 0.8096
-[FP32] Avg  Runtime: 0.714 s/image
+[FP32] Avg  Runtime: 0.741 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -197,12 +197,12 @@ Model size:  FP32 117.2 MB  →  INT8 91.1 MB  (1.29x reduction)
 [INT8]  11 12                    PSNR: 27.54 dB  SSIM: 0.7625
 
 [INT8] Avg  PSNR: 27.91 dB  SSIM: 0.8096
-[INT8] Avg  Runtime: 0.869 s/image
+[INT8] Avg  Runtime: 0.640 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 27.9105 → 27.9100  (Δ = -0.0005 dB)
   SSIM   : 0.8096 → 0.8096  (Δ = +0.0000    )
-  RUNTIME: 0.714 s/img → 0.869 s/img  (0.82x slower)
+  RUNTIME: 0.741 s/img → 0.640 s/img  (1.16x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/004_grayDN_DFWB_s128w8_SwinIR-M_noise50.pth  (91.2 MB on disk)
 
 Done.

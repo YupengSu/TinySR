@@ -30,6 +30,7 @@ Usage examples
 
 import argparse
 import copy
+import cv2
 import io
 import types
 import glob
@@ -257,12 +258,16 @@ def apply_structured_pruning(model: nn.Module,
 # ─────────────────────────────────────────────────────────────────────────────
 
 def evaluate_folder(model: nn.Module, folder: str, args,
-                    window_size: int, device: torch.device, tag: str = '') -> dict:
+                    window_size: int, device: torch.device, tag: str = '',
+                    save_dir: str = None) -> dict:
     results = {'psnr': [], 'ssim': [], 'psnr_y': [], 'ssim_y': [], 'time_s': []}
     paths = sorted(glob.glob(os.path.join(folder, '*')))
     if not paths:
         print(f'[WARN] No images found in {folder}')
         return results
+
+    if save_dir:
+        os.makedirs(save_dir, exist_ok=True)
 
     for idx, path in enumerate(paths):
         imgname, img_lq, img_gt = get_image_pair(args, path)
@@ -285,6 +290,9 @@ def evaluate_folder(model: nn.Module, folder: str, args,
         if output.ndim == 3:
             output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round().astype(np.uint8)
+
+        if save_dir:
+            cv2.imwrite(os.path.join(save_dir, f'{imgname}_SwinIR.png'), output)
 
         if img_gt is None:
             print(f'[{tag}] {idx:3d} {imgname:20s}')
@@ -410,6 +418,7 @@ def main():
 
     folder, save_dir, border, window_size = setup(args)
     os.makedirs(save_dir, exist_ok=True)
+    img_save_dir = os.path.join(save_dir, 'prune')
 
     fp32_params = count_params(model_fp32)
     fp32_size   = model_size_mb(model_fp32)
@@ -420,7 +429,9 @@ def main():
     if not args.skip_fp32_eval and folder and os.path.exists(folder):
         print(f'\n--- FP32 Baseline on {folder} ---')
         model_fp32.to(device)
-        metrics_fp32 = evaluate_folder(model_fp32, folder, args, window_size, device, tag='FP32')
+        metrics_fp32 = evaluate_folder(
+            model_fp32, folder, args, window_size, device, tag='FP32',
+        )
         model_fp32.cpu()
     else:
         print('\n[INFO] Skipping FP32 baseline evaluation.')
@@ -452,7 +463,9 @@ def main():
         print(f'\n--- Pruned evaluation on {folder} ({device}) ---')
         model_pruned.to(device)
         metrics_pruned = evaluate_folder(
-            model_pruned, folder, args, window_size, device, tag='Pruned')
+            model_pruned, folder, args, window_size, device, tag='Pruned',
+            save_dir=img_save_dir,
+        )
 
         if metrics_fp32.get('psnr') is not None and metrics_pruned.get('psnr') is not None:
             print(f'\n--- Quality delta (FP32 → Pruned) ---')

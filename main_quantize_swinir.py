@@ -139,7 +139,7 @@ def apply_dynamic_ptq(model: nn.Module, bits: int = 8, quant_conv: bool = False)
 # ─────────────────────────────────────────────────────────────────────────────
 
 def evaluate_folder(model: nn.Module, folder: str, args, window_size: int,
-                    device: torch.device, tag: str = '') -> dict:
+                    device: torch.device, tag: str = '', save_dir: str = None) -> dict:
     """
     Run inference on every image in folder and return average metrics + timing.
     Returns dict with keys: psnr, ssim, psnr_y, ssim_y, avg_time_s
@@ -149,6 +149,9 @@ def evaluate_folder(model: nn.Module, folder: str, args, window_size: int,
     if not paths:
         print(f'[WARN] No images found in {folder}')
         return results
+
+    if save_dir:
+        os.makedirs(save_dir, exist_ok=True)
 
     for idx, path in enumerate(paths):
         imgname, img_lq, img_gt = get_image_pair(args, path)
@@ -172,6 +175,9 @@ def evaluate_folder(model: nn.Module, folder: str, args, window_size: int,
         if output.ndim == 3:
             output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round().astype(np.uint8)
+
+        if save_dir:
+            cv2.imwrite(os.path.join(save_dir, f'{imgname}_SwinIR.png'), output)
 
         if img_gt is None:
             print(f'[{tag}] {idx:3d} {imgname:20s}')
@@ -289,6 +295,7 @@ def main():
 
     folder, save_dir, border, window_size = setup(args)
     os.makedirs(save_dir, exist_ok=True)
+    img_save_dir = os.path.join(save_dir, 'quantize')
 
     n_linear, linear_names = count_linear_layers(model_fp32)
     print(f'FP32 model: {n_linear} nn.Linear layers to be quantized')
@@ -303,7 +310,7 @@ def main():
         print(f'\n--- FP32 Baseline on {folder} ---')
         model_fp32.to(device)
         metrics_fp32 = evaluate_folder(
-            model_fp32, folder, args, window_size, device, tag='FP32'
+            model_fp32, folder, args, window_size, device, tag='FP32',
         )
         model_fp32.cpu()
     else:
@@ -328,7 +335,8 @@ def main():
         print(f'\n--- INT{args.bits} evaluation on {folder} ({device}) ---')
         model_quant.to(device)
         metrics_quant = evaluate_folder(
-            model_quant, folder, args, window_size, device, tag=f'INT{args.bits}'
+            model_quant, folder, args, window_size, device, tag=f'INT{args.bits}',
+            save_dir=img_save_dir,
         )
 
         if metrics_fp32.get('psnr') is not None and metrics_quant.get('psnr') is not None:

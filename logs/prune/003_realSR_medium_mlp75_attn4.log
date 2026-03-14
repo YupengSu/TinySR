@@ -36,7 +36,7 @@ FP32 model: 11,715,559 params  |  64.0 MB
 [FP32]  22 pattern             
 [FP32]  23 ppt3                
 [FP32]  24 tiger               
-[FP32] Avg  Runtime: 0.233 s/image
+[FP32] Avg  Runtime: 0.258 s/image
 
 --- Applying structured pruning (MLP=75%+Attn=4heads) ---
   [MLP]  hidden 360 → 270  (keep 75%)
@@ -74,8 +74,8 @@ Size:        64.0 MB  →     53.5 MB  (1.20x reduction)
 [Pruned]  22 pattern             
 [Pruned]  23 ppt3                
 [Pruned]  24 tiger               
-[Pruned] Avg  Runtime: 0.195 s/image
-  RUNTIME: 0.233 s/img → 0.195 s/img  (1.20x faster)
+[Pruned] Avg  Runtime: 0.238 s/image
+  RUNTIME: 0.258 s/img → 0.238 s/img  (1.08x faster)
 Saved pruned model → model_zoo/swinir_pruned/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN_mlp75_attn4h.pth  (53.6 MB on disk)
 
 Done.

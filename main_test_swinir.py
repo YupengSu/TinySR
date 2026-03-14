@@ -47,7 +47,7 @@ def main():
 
     # setup folder and path
     folder, save_dir, border, window_size = setup(args)
-    os.makedirs(save_dir, exist_ok=True)
+    os.makedirs(os.path.join(save_dir, 'original'), exist_ok=True)
     test_results = OrderedDict()
     test_results['psnr'] = []
     test_results['ssim'] = []
@@ -79,7 +79,7 @@ def main():
         if output.ndim == 3:
             output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))  # CHW-RGB to HCW-BGR
         output = (output * 255.0).round().astype(np.uint8)  # float32 to uint8
-        cv2.imwrite(f'{save_dir}/{imgname}_SwinIR.png', output)
+        cv2.imwrite(f'{save_dir}/original/{imgname}_SwinIR.png', output)
 
         # evaluate psnr/ssim/psnr_b
         if img_gt is not None:

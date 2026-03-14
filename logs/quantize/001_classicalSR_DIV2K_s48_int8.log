@@ -1,5 +1,5 @@
 ===== Classical SR (DIV2K, patch=48) =====
-[Thu Mar  5 11:16:31 AM PST 2026] Scale: x2
+[Sat Mar 14 04:26:00 PM PDT 2026] Scale: x2
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -29,7 +29,7 @@ FP32 size : 56.3 MB
 
 [FP32] Avg  PSNR: 36.15 dB  SSIM: 0.9455
 [FP32] Avg  PSNR_Y: 38.35 dB  SSIM_Y: 0.9620
-[FP32] Avg  Runtime: 0.171 s/image
+[FP32] Avg  Runtime: 0.152 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -47,18 +47,18 @@ Model size:  FP32 56.3 MB  →  INT8 30.2 MB  (1.86x reduction)
 
 [INT8] Avg  PSNR: 36.15 dB  SSIM: 0.9456
 [INT8] Avg  PSNR_Y: 38.35 dB  SSIM_Y: 0.9620
-[INT8] Avg  Runtime: 0.094 s/image
+[INT8] Avg  Runtime: 0.086 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 36.1483 → 36.1475  (Δ = -0.0008 dB)
   SSIM   : 0.9455 → 0.9456  (Δ = +0.0000    )
   PSNR_Y : 38.3524 → 38.3514  (Δ = -0.0010 dB)
   SSIM_Y : 0.9620 → 0.9620  (Δ = +0.0000    )
-  RUNTIME: 0.171 s/img → 0.094 s/img  (1.82x faster)
+  RUNTIME: 0.152 s/img → 0.086 s/img  (1.77x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DIV2K_s48w8_SwinIR-M_x2.pth  (30.3 MB on disk)
 
 Done.
-[Thu Mar  5 11:16:39 AM PST 2026] Scale: x3
+[Sat Mar 14 04:26:08 PM PDT 2026] Scale: x3
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -88,7 +88,7 @@ FP32 size : 57.0 MB
 
 [FP32] Avg  PSNR: 32.88 dB  SSIM: 0.9078
 [FP32] Avg  PSNR_Y: 34.89 dB  SSIM_Y: 0.9312
-[FP32] Avg  Runtime: 0.147 s/image
+[FP32] Avg  Runtime: 0.127 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -106,18 +106,18 @@ Model size:  FP32 57.0 MB  →  INT8 30.9 MB  (1.84x reduction)
 
 [INT8] Avg  PSNR: 32.88 dB  SSIM: 0.9078
 [INT8] Avg  PSNR_Y: 34.89 dB  SSIM_Y: 0.9312
-[INT8] Avg  Runtime: 0.075 s/image
+[INT8] Avg  Runtime: 0.066 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 32.8798 → 32.8806  (Δ = +0.0008 dB)
   SSIM   : 0.9078 → 0.9078  (Δ = +0.0000    )
   PSNR_Y : 34.8915 → 34.8924  (Δ = +0.0009 dB)
   SSIM_Y : 0.9312 → 0.9312  (Δ = +0.0000    )
-  RUNTIME: 0.147 s/img → 0.075 s/img  (1.97x faster)
+  RUNTIME: 0.127 s/img → 0.066 s/img  (1.92x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DIV2K_s48w8_SwinIR-M_x3.pth  (31.0 MB on disk)
 
 Done.
-[Thu Mar  5 11:16:47 AM PST 2026] Scale: x4
+[Sat Mar 14 04:26:16 PM PDT 2026] Scale: x4
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -147,7 +147,7 @@ FP32 size : 56.8 MB
 
 [FP32] Avg  PSNR: 30.80 dB  SSIM: 0.8728
 [FP32] Avg  PSNR_Y: 32.72 dB  SSIM_Y: 0.9021
-[FP32] Avg  Runtime: 0.133 s/image
+[FP32] Avg  Runtime: 0.132 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -165,18 +165,18 @@ Model size:  FP32 56.8 MB  →  INT8 30.8 MB  (1.85x reduction)
 
 [INT8] Avg  PSNR: 30.79 dB  SSIM: 0.8727
 [INT8] Avg  PSNR_Y: 32.72 dB  SSIM_Y: 0.9021
-[INT8] Avg  Runtime: 0.063 s/image
+[INT8] Avg  Runtime: 0.060 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 30.7951 → 30.7932  (Δ = -0.0018 dB)
   SSIM   : 0.8728 → 0.8727  (Δ = -0.0000    )
   PSNR_Y : 32.7187 → 32.7167  (Δ = -0.0021 dB)
   SSIM_Y : 0.9021 → 0.9021  (Δ = -0.0000    )
-  RUNTIME: 0.133 s/img → 0.063 s/img  (2.12x faster)
+  RUNTIME: 0.132 s/img → 0.060 s/img  (2.20x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DIV2K_s48w8_SwinIR-M_x4.pth  (30.8 MB on disk)
 
 Done.
-[Thu Mar  5 11:16:55 AM PST 2026] Scale: x8
+[Sat Mar 14 04:26:23 PM PDT 2026] Scale: x8
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -206,7 +206,7 @@ FP32 size : 57.4 MB
 
 [FP32] Avg  PSNR: 25.65 dB  SSIM: 0.7433
 [FP32] Avg  PSNR_Y: 27.37 dB  SSIM_Y: 0.7877
-[FP32] Avg  Runtime: 0.119 s/image
+[FP32] Avg  Runtime: 0.123 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -224,14 +224,14 @@ Model size:  FP32 57.4 MB  →  INT8 31.3 MB  (1.83x reduction)
 
 [INT8] Avg  PSNR: 25.65 dB  SSIM: 0.7433
 [INT8] Avg  PSNR_Y: 27.37 dB  SSIM_Y: 0.7876
-[INT8] Avg  Runtime: 0.061 s/image
+[INT8] Avg  Runtime: 0.059 s/image
 
 --- Quality delta (FP32 → INT8) ---
   PSNR   : 25.6512 → 25.6502  (Δ = -0.0010 dB)
   SSIM   : 0.7433 → 0.7433  (Δ = -0.0000    )
   PSNR_Y : 27.3711 → 27.3694  (Δ = -0.0017 dB)
   SSIM_Y : 0.7877 → 0.7876  (Δ = -0.0001    )
-  RUNTIME: 0.119 s/img → 0.061 s/img  (1.93x faster)
+  RUNTIME: 0.123 s/img → 0.059 s/img  (2.06x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/001_classicalSR_DIV2K_s48w8_SwinIR-M_x8.pth  (31.4 MB on disk)
 
 Done.

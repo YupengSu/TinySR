@@ -45,7 +45,7 @@ FP32 size : 64.0 MB
 [FP32]  22 pattern             
 [FP32]  23 ppt3                
 [FP32]  24 tiger               
-[FP32] Avg  Runtime: 0.229 s/image
+[FP32] Avg  Runtime: 0.252 s/image
 
 --- Applying INT8 PTQ ---
 [torchao] INT8 weight-only: 144/144 nn.Linear quantized
@@ -80,8 +80,8 @@ Model size:  FP32 64.0 MB  →  INT8 37.9 MB  (1.69x reduction)
 [INT8]  22 pattern             
 [INT8]  23 ppt3                
 [INT8]  24 tiger               
-[INT8] Avg  Runtime: 0.193 s/image
-  RUNTIME: 0.229 s/img → 0.193 s/img  (1.19x faster)
+[INT8] Avg  Runtime: 0.220 s/image
+  RUNTIME: 0.252 s/img → 0.220 s/img  (1.15x faster)
 Saved quantized model → model_zoo/swinir_quantized_int8/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth  (38.0 MB on disk)
 
 Done.
