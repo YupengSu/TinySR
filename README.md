@@ -1,4 +1,4 @@
-# TinySR: Efficient Image Restoration via Compression of SwinIR
+# TinySR: Efficient Image Restoration via Compression of Swin Transformers
 
 **TinySR** builds on [SwinIR](https://arxiv.org/abs/2108.10257) with two post-training compression methods — quantization and structured pruning — applied directly to pretrained weights. No retraining required.
 
