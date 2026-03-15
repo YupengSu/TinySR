@@ -1,5 +1,5 @@
 ===== Lightweight SR (DIV2K) =====
-[Sat Mar 14 04:27:51 PM PDT 2026] Scale: x2
+[Sat Mar 14 04:49:17 PM PDT 2026] Scale: x2
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -20,7 +20,7 @@ FP32 model: 910,152 params  |  16.3 MB
 
 [FP32] Avg  PSNR: 35.95 dB  SSIM: 0.9445
 [FP32] Avg  PSNR_Y: 38.14 dB  SSIM_Y: 0.9611
-[FP32] Avg  Runtime: 0.137 s/image
+[FP32] Avg  Runtime: 0.123 s/image
 
 --- Applying structured pruning (MLP=75%+Attn=4heads) ---
   [MLP]  hidden 120 → 90  (keep 75%)
@@ -41,18 +41,18 @@ Size:        16.3 MB  →     15.5 MB  (1.05x reduction)
 
 [Pruned] Avg  PSNR: 33.41 dB  SSIM: 0.9258
 [Pruned] Avg  PSNR_Y: 35.36 dB  SSIM_Y: 0.9460
-[Pruned] Avg  Runtime: 0.076 s/image
+[Pruned] Avg  Runtime: 0.066 s/image
 
 --- Quality delta (FP32 → Pruned) ---
   PSNR   : 35.9463 → 33.4058  (Δ = -2.5405 dB)
   SSIM   : 0.9445 → 0.9258  (Δ = -0.0187    )
   PSNR_Y : 38.1394 → 35.3590  (Δ = -2.7804 dB)
   SSIM_Y : 0.9611 → 0.9460  (Δ = -0.0151    )
-  RUNTIME: 0.137 s/img → 0.076 s/img  (1.81x faster)
+  RUNTIME: 0.123 s/img → 0.066 s/img  (1.86x faster)
 Saved pruned model → model_zoo/swinir_pruned/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x2_mlp75_attn4h.pth  (15.6 MB on disk)
 
 Done.
-[Sat Mar 14 04:27:58 PM PDT 2026] Scale: x3
+[Sat Mar 14 04:49:24 PM PDT 2026] Scale: x3
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -73,7 +73,7 @@ FP32 model: 918,267 params  |  16.4 MB
 
 [FP32] Avg  PSNR: 32.61 dB  SSIM: 0.9049
 [FP32] Avg  PSNR_Y: 34.62 dB  SSIM_Y: 0.9289
-[FP32] Avg  Runtime: 0.125 s/image
+[FP32] Avg  Runtime: 0.122 s/image
 
 --- Applying structured pruning (MLP=75%+Attn=4heads) ---
   [MLP]  hidden 120 → 90  (keep 75%)
@@ -94,18 +94,18 @@ Size:        16.4 MB  →     15.6 MB  (1.05x reduction)
 
 [Pruned] Avg  PSNR: 31.13 dB  SSIM: 0.8715
 [Pruned] Avg  PSNR_Y: 32.98 dB  SSIM_Y: 0.9083
-[Pruned] Avg  Runtime: 0.064 s/image
+[Pruned] Avg  Runtime: 0.049 s/image
 
 --- Quality delta (FP32 → Pruned) ---
   PSNR   : 32.6080 → 31.1296  (Δ = -1.4784 dB)
   SSIM   : 0.9049 → 0.8715  (Δ = -0.0334    )
   PSNR_Y : 34.6209 → 32.9824  (Δ = -1.6385 dB)
   SSIM_Y : 0.9289 → 0.9083  (Δ = -0.0206    )
-  RUNTIME: 0.125 s/img → 0.064 s/img  (1.97x faster)
+  RUNTIME: 0.122 s/img → 0.049 s/img  (2.51x faster)
 Saved pruned model → model_zoo/swinir_pruned/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x3_mlp75_attn4h.pth  (15.6 MB on disk)
 
 Done.
-[Sat Mar 14 04:28:05 PM PDT 2026] Scale: x4
+[Sat Mar 14 04:49:31 PM PDT 2026] Scale: x4
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -126,7 +126,7 @@ FP32 model: 929,628 params  |  16.4 MB
 
 [FP32] Avg  PSNR: 30.52 dB  SSIM: 0.8679
 [FP32] Avg  PSNR_Y: 32.44 dB  SSIM_Y: 0.8976
-[FP32] Avg  Runtime: 0.119 s/image
+[FP32] Avg  Runtime: 0.458 s/image
 
 --- Applying structured pruning (MLP=75%+Attn=4heads) ---
   [MLP]  hidden 120 → 90  (keep 75%)
@@ -147,14 +147,14 @@ Size:        16.4 MB  →     15.6 MB  (1.05x reduction)
 
 [Pruned] Avg  PSNR: 26.94 dB  SSIM: 0.7761
 [Pruned] Avg  PSNR_Y: 28.61 dB  SSIM_Y: 0.8113
-[Pruned] Avg  Runtime: 0.047 s/image
+[Pruned] Avg  Runtime: 0.043 s/image
 
 --- Quality delta (FP32 → Pruned) ---
   PSNR   : 30.5191 → 26.9412  (Δ = -3.5779 dB)
   SSIM   : 0.8679 → 0.7761  (Δ = -0.0919    )
   PSNR_Y : 32.4420 → 28.6085  (Δ = -3.8335 dB)
   SSIM_Y : 0.8976 → 0.8113  (Δ = -0.0864    )
-  RUNTIME: 0.119 s/img → 0.047 s/img  (2.56x faster)
+  RUNTIME: 0.458 s/img → 0.043 s/img  (10.75x faster)
 Saved pruned model → model_zoo/swinir_pruned/002_lightweightSR_DIV2K_s64w8_SwinIR-S_x4_mlp75_attn4h.pth  (15.6 MB on disk)
 
 Done.

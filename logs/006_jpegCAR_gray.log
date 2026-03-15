@@ -1,5 +1,5 @@
 ===== Grayscale JPEG CAR =====
-[Wed Mar  4 03:32:48 PM PST 2026] JPEG quality: 10
+[Sat Mar 14 04:56:48 PM PDT 2026] JPEG quality: 10
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -14,7 +14,7 @@ Testing 4 peppers              - PSNR: 32.85 dB; SSIM: 0.8452; PSNRB: 32.67 dB;P
 results/swinir_jpeg_car_jpeg10 
 -- Average PSNR/SSIM(RGB): 30.27 dB; 0.8249
 -- Average PSNRB: 29.95 dB
-[Wed Mar  4 03:33:05 PM PST 2026] JPEG quality: 20
+[Sat Mar 14 04:57:06 PM PDT 2026] JPEG quality: 20
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -29,7 +29,7 @@ Testing 4 peppers              - PSNR: 34.41 dB; SSIM: 0.8655; PSNRB: 34.22 dB;P
 results/swinir_jpeg_car_jpeg20 
 -- Average PSNR/SSIM(RGB): 32.52 dB; 0.8748
 -- Average PSNRB: 31.97 dB
-[Wed Mar  4 03:33:22 PM PST 2026] JPEG quality: 30
+[Sat Mar 14 04:57:23 PM PDT 2026] JPEG quality: 30
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -44,7 +44,7 @@ Testing 4 peppers              - PSNR: 35.13 dB; SSIM: 0.8768; PSNRB: 34.74 dB;P
 results/swinir_jpeg_car_jpeg30 
 -- Average PSNR/SSIM(RGB): 33.74 dB; 0.8961
 -- Average PSNRB: 33.03 dB
-[Wed Mar  4 03:33:38 PM PST 2026] JPEG quality: 40
+[Sat Mar 14 04:57:40 PM PDT 2026] JPEG quality: 40
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)

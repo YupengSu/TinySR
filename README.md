@@ -56,6 +56,13 @@ Pruning config: `--mlp_keep_ratio 0.75 --attn_keep_heads 4` (360→270 hidden ch
 
 ### Classical SR (DIV2K, patch=48) — Set5
 
+<table><tr>
+<td align="center"><img src="figures/classical_sr_input.png" width="180"/><br><sub>Input (LR ×2)</sub></td>
+<td align="center"><img src="figures/classical_sr_fp32.png" width="180"/><br><sub>FP32</sub></td>
+<td align="center"><img src="figures/classical_sr_quantize.png" width="180"/><br><sub>INT8</sub></td>
+<td align="center"><img src="figures/classical_sr_prune.png" width="180"/><br><sub>Pruned</sub></td>
+</tr></table>
+
 **INT8** · FP32 mem ~56–57 MB → INT8 ~30–31 MB (~1.85×)
 
 | Scale | FP32 PSNR | INT8 PSNR | ΔPSNR | Speedup |
@@ -100,6 +107,13 @@ Pruning config: `--mlp_keep_ratio 0.75 --attn_keep_heads 4` (360→270 hidden ch
 
 ### Lightweight SR (DIV2K, SwinIR-S) — Set5
 
+<table><tr>
+<td align="center"><img src="figures/lightweight_sr_input.png" width="180"/><br><sub>Input (LR ×2)</sub></td>
+<td align="center"><img src="figures/lightweight_sr_fp32.png" width="180"/><br><sub>FP32</sub></td>
+<td align="center"><img src="figures/lightweight_sr_quantize.png" width="180"/><br><sub>INT8</sub></td>
+<td align="center"><img src="figures/lightweight_sr_prune.png" width="180"/><br><sub>Pruned</sub></td>
+</tr></table>
+
 **INT8** · FP32 mem ~16.4 MB → INT8 ~14.6 MB (~1.12×)
 
 | Scale | FP32 PSNR | INT8 PSNR | ΔPSNR | Speedup |
@@ -120,6 +134,13 @@ Pruning config: `--mlp_keep_ratio 0.75 --attn_keep_heads 4` (360→270 hidden ch
 
 ### Real-World SR ×4 — RealSRSet+5images (no-reference)
 
+<table><tr>
+<td align="center"><img src="figures/real_sr_input.jpg" width="180"/><br><sub>Input</sub></td>
+<td align="center"><img src="figures/real_sr_fp32.png" width="180"/><br><sub>FP32</sub></td>
+<td align="center"><img src="figures/real_sr_quantize.png" width="180"/><br><sub>INT8</sub></td>
+<td align="center"><img src="figures/real_sr_prune.png" width="180"/><br><sub>Pruned</sub></td>
+</tr></table>
+
 | | FP32 | INT8 | Pruned |
 |:-|:----:|:----:|:------:|
 | **SwinIR-M** mem | 64.0 MB | 37.9 MB (1.69×) | 53.5 MB (1.20×) |
@@ -132,6 +153,13 @@ Pruning config: `--mlp_keep_ratio 0.75 --attn_keep_heads 4` (360→270 hidden ch
 ---
 
 ### Grayscale Denoising (SwinIR-M) — Set12
+
+<table><tr>
+<td align="center"><img src="figures/gray_dn_input.png" width="180"/><br><sub>Input (σ=15)</sub></td>
+<td align="center"><img src="figures/gray_dn_fp32.png" width="180"/><br><sub>FP32</sub></td>
+<td align="center"><img src="figures/gray_dn_quantize.png" width="180"/><br><sub>INT8</sub></td>
+<td align="center"><img src="figures/gray_dn_prune.png" width="180"/><br><sub>Pruned</sub></td>
+</tr></table>
 
 Model: 117.2 MB → INT8 91.1 MB (1.29×) · Pruned 106.7 MB (1.10×) · Params: 11.50M → 8.75M (1.31×)
 
@@ -147,6 +175,13 @@ Model: 117.2 MB → INT8 91.1 MB (1.29×) · Pruned 106.7 MB (1.10×) · Params:
 
 ### Color Denoising (SwinIR-M) — McMaster
 
+<table><tr>
+<td align="center"><img src="figures/color_dn_input.png" width="180"/><br><sub>Input (σ=15)</sub></td>
+<td align="center"><img src="figures/color_dn_fp32.png" width="180"/><br><sub>FP32</sub></td>
+<td align="center"><img src="figures/color_dn_quantize.png" width="180"/><br><sub>INT8</sub></td>
+<td align="center"><img src="figures/color_dn_prune.png" width="180"/><br><sub>Pruned</sub></td>
+</tr></table>
+
 Model: 117.2 MB → INT8 91.1 MB (1.29×) · Pruned 106.7 MB (1.10×) · Params: 11.50M → 8.76M (1.31×)
 
 | Noise σ | FP32 PSNR | INT8 PSNR | ΔINT8 | Pruned PSNR | ΔPruned |
@@ -158,6 +193,13 @@ Model: 117.2 MB → INT8 91.1 MB (1.29×) · Pruned 106.7 MB (1.10×) · Params:
 ---
 
 ### Grayscale JPEG CAR (SwinIR-M) — classic5
+
+<table><tr>
+<td align="center"><img src="figures/jpeg_car_input.png" width="180"/><br><sub>Input (JPEG q=10)</sub></td>
+<td align="center"><img src="figures/jpeg_car_fp32.png" width="180"/><br><sub>FP32</sub></td>
+<td align="center"><img src="figures/jpeg_car_quantize.png" width="180"/><br><sub>INT8</sub></td>
+<td align="center"><img src="figures/jpeg_car_prune.png" width="180"/><br><sub>Pruned</sub></td>
+</tr></table>
 
 Model: 98.1 MB → INT8 72.0 MB (1.36×) · Pruned 87.6 MB (1.12×) · Params: 11.49M → 8.74M (1.31×)
 

@@ -1,10 +1,10 @@
 ===== Real-World SR (SwinIR-M) =====
-[Wed Mar  4 03:28:33 PM PST 2026] Scale: x4
+[Sat Mar 14 04:50:17 PM PDT 2026] Scale: x4
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
   return _VF.meshgrid(tensors, **kwargs)  # type: ignore[attr-defined]
-downloading model model_zoo/swinir/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth
+loading model from model_zoo/swinir/003_realSR_BSRGAN_DFO_s64w8_SwinIR-M_x4_GAN.pth
 Testing 0 00003               
 Testing 1 0014                
 Testing 2 0030                

@@ -1,5 +1,5 @@
 ===== Color Denoising =====
-[Wed Mar  4 03:30:35 PM PST 2026] Noise level: 15
+[Sat Mar 14 04:54:26 PM PDT 2026] Noise level: 15
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -27,7 +27,7 @@ Testing 17 9                    - PSNR: 36.46 dB; SSIM: 0.9399; PSNRB: 0.00 dB;P
 results/swinir_color_dn_noise15 
 -- Average PSNR/SSIM(RGB): 35.61 dB; 0.9346
 -- Average PSNR_Y/SSIM_Y: 38.42 dB; 0.9598
-[Wed Mar  4 03:31:20 PM PST 2026] Noise level: 25
+[Sat Mar 14 04:55:21 PM PDT 2026] Noise level: 25
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -55,7 +55,7 @@ Testing 17 9                    - PSNR: 34.11 dB; SSIM: 0.9207; PSNRB: 0.00 dB;P
 results/swinir_color_dn_noise25 
 -- Average PSNR/SSIM(RGB): 33.31 dB; 0.9057
 -- Average PSNR_Y/SSIM_Y: 35.87 dB; 0.9364
-[Wed Mar  4 03:32:04 PM PST 2026] Noise level: 50
+[Sat Mar 14 04:56:08 PM PDT 2026] Noise level: 50
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)

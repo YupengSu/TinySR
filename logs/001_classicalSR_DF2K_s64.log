@@ -1,5 +1,5 @@
 ===== Classical SR (DF2K, patch=64) =====
-[Wed Mar  4 03:27:36 PM PST 2026] Scale: x2
+[Sat Mar 14 04:49:14 PM PDT 2026] Scale: x2
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -14,7 +14,7 @@ Testing 4 woman                - PSNR: 35.56 dB; SSIM: 0.9735; PSNRB: 0.00 dB;PS
 results/swinir_classical_sr_x2 
 -- Average PSNR/SSIM(RGB): 36.21 dB; 0.9460
 -- Average PSNR_Y/SSIM_Y: 38.42 dB; 0.9623
-[Wed Mar  4 03:27:44 PM PST 2026] Scale: x3
+[Sat Mar 14 04:49:22 PM PDT 2026] Scale: x3
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -29,7 +29,7 @@ Testing 4 woman                - PSNR: 32.19 dB; SSIM: 0.9442; PSNRB: 0.00 dB;PS
 results/swinir_classical_sr_x3 
 -- Average PSNR/SSIM(RGB): 32.95 dB; 0.9086
 -- Average PSNR_Y/SSIM_Y: 34.97 dB; 0.9318
-[Wed Mar  4 03:27:53 PM PST 2026] Scale: x4
+[Sat Mar 14 04:49:30 PM PDT 2026] Scale: x4
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
@@ -44,7 +44,7 @@ Testing 4 woman                - PSNR: 30.11 dB; SSIM: 0.9163; PSNRB: 0.00 dB;PS
 results/swinir_classical_sr_x4 
 -- Average PSNR/SSIM(RGB): 30.99 dB; 0.8758
 -- Average PSNR_Y/SSIM_Y: 32.92 dB; 0.9044
-[Wed Mar  4 03:28:01 PM PST 2026] Scale: x8
+[Sat Mar 14 04:49:40 PM PDT 2026] Scale: x8
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/timm/models/layers/__init__.py:49: FutureWarning: Importing from timm.models.layers is deprecated, please import via timm.layers
   warnings.warn(f"Importing from {__name__} is deprecated, please import via timm.layers", FutureWarning)
 /home/yupeng/anaconda3/envs/swinir/lib/python3.12/site-packages/torch/functional.py:505: UserWarning: torch.meshgrid: in an upcoming release, it will be required to pass the indexing argument. (Triggered internally at /pytorch/aten/src/ATen/native/TensorShape.cpp:4317.)
